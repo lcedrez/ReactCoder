@@ -4,14 +4,8 @@
   margin:0;
   padding:0;
 }
-.menu{
-  text-align: center;
-  
-}
 
-.menu ul{
-  list-style: none;
-}
+
 
 .topnav {
   background-color: #333;
@@ -34,6 +28,6 @@
 
 
 .topnav a.active {
-  background-color: #04AA6D;
+  background-color: #1ce44e;
   color: white;
 }

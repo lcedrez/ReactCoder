@@ -4,10 +4,10 @@ const NavBar =()=> {
     return(
 
         <div class="topnav">
-            <a class="active" href="#home">Home</a>
-            <a href="#news">News</a>
-            <a href="#contact">Contact</a>
-            <a href="#about">About</a>
+            <a class="active" href="#Inicio">Inico</a>
+            <a href="#Outlet">Outlet</a>
+            <a href="#ToysandGames">Toys and Games</a>
+            <a href="#Home">Home</a>
         </div>
     )
 
