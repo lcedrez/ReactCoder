@@ -1,0 +1,9 @@
+.contenedorCarrito{
+    display:flex;
+    align-items: center;
+    padding-right: 180px;
+    font-size: 30px;
+    cursor: pointer;
+  
+  }
+
