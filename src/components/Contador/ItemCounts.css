@@ -1,0 +1,51 @@
+.contenedorCounter{
+    display: flex;
+    justify-content: center;
+}
+
+.contenedorItem{
+    padding: 8px;
+    font-size: 25px;
+    border-color: #080808;
+    border-width: 2px;
+    border-style: solid;
+    width: 80px;
+    height: 50px;
+    align-items: center ;
+}
+.contenedorAgregar{
+    padding: 10px;
+}
+.botonAgregar{
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #080808;  
+}
+
+.botonAgregar:hover {
+    background: #f9fafa;
+    color: #080808 ;
+  }
+
+  .botonItems:hover {
+    background: #f9fafa;
+    color: #080808 ;
+  }
+
+
+
+.botonItems{
+    color: white;
+    border-radius: 5px;
+    background-color: #080808;
+    width:50px;
+    height: 50px;
+    font-size: 30px;
+    
+}
+.ContenedorBoton{
+    padding-left: 10px;
+    padding-right: 10px;
+    
+}

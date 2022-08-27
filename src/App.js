@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import CartWidget from './components/CartWidget/CartWidget'; 
 import Logo from './assets/img/LogoStoreUy.jpg';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
+import Contador from './components/Contador/ItemCounts';
 
 
 const App = ()=> {
@@ -22,8 +23,9 @@ const App = ()=> {
       </div>
       <div className='contenedorTitulo'>
             <ItemListContainer/>
+            <Contador/>
       </div>
-   
+    
         
       </header>
 
