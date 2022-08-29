@@ -7,14 +7,12 @@ import ItemList from "../itemList/itemList"
 
 
 const ItemListContainer = () =>{
-   // <h1 className="tituloStore" >
-   // SHOP THE GET BACK AND LET IT BE COLLECTIONS
-   // </h1>
+  
 
     const [productos,setProductos]=useState([])   
 
    
-    console.log(productos)
+    
 
     useEffect(()=>{
         pedirDatos()

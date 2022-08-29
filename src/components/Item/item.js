@@ -1,7 +1,8 @@
 
 const Item=(producto)=>{
 
-    return( <div>
+    return( 
+            <div>
                     <img src={producto.imagen}></img>
                     <h4>{producto.nombre}</h4>
                     <p>Precio:U$S {producto.precio}</p>

@@ -1,0 +1,45 @@
+
+.contenedorFooter{
+    padding-top: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: black;
+  }
+  
+  .quienesSomos{
+    color:white;
+   text-align: center;
+    flex-direction: column;
+    align-content: stretch;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .parrafoQuienesSomos{
+   height: 200px;
+   width:300px;
+  } 
+  
+  .siguenos{
+   color: white;
+    height: 200px;
+    width:300px;
+  }
+  
+  .logoFooter img{
+    width: 150px;
+    padding-left: 20px;
+  }
+  
+  .quienesSomos{
+    font-size: 16px;
+  }
+  
+  .quienesSomos h2{
+    font-size: 17px;
+  }
+  
+  .pie{
+    text-align: center;
+  }
+  

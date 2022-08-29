@@ -6,6 +6,7 @@ import CartWidget from './components/CartWidget/CartWidget';
 import Logo from './assets/img/LogoStoreUy.jpg';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import Contador from './components/Contador/ItemCounts';
+import Footer from './components/Footer/footer';
 
 
 const App = ()=> {
@@ -21,14 +22,24 @@ const App = ()=> {
         </div>
         
       </div>
-      <div className='contenedorTitulo'>
-            <ItemListContainer/>
-            <Contador/>
-      </div>
-    
-        
-      </header>
+     </header>
+        <div className='contenedorTitulo'>
+            <h1 className="tituloStore" >SHOP THE GET BACK AND LET IT BE COLLECTIONS</h1>
+                  <ItemListContainer/>
+              
+              
+        </div>
+      <br/>
+      <br/>
+      <br/>
 
+
+        <footer>
+         <Footer/>
+        </footer>
+        <div className='pie'>
+                <small>&copy; 2022 <b>Apple Records</b> - Todos los Derechos Reservados.</small>
+            </div>
     </div>
 
   );
