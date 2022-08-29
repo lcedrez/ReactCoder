@@ -1,5 +1,6 @@
 import './Footer.css';
 import LogoFooter from '../../assets/img/Whitelogo.jpg';
+import Redes from '../Redes/redes';
 
 const Footer=()=>{
     return(
@@ -15,6 +16,7 @@ const Footer=()=>{
             </div>
                     <div className='siguenos'>
                     <h5>SIGUENOS</h5>
+                        <Redes/>
                     </div>
         </div>
     
