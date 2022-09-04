@@ -16,7 +16,7 @@ const App = ()=> {
   return (
    
     <div className="App">
-       <BrowserRouter>
+       
 
          
 
@@ -34,9 +34,7 @@ const App = ()=> {
           
           <TituloInicio/>
           
-          <Routes>
-
-          </Routes>
+          
                             
             <br/>
             <br/>
@@ -44,7 +42,7 @@ const App = ()=> {
           <ItemDetailContainer/>
           <Footer/>
           <PieDePagina/>
-          </BrowserRouter>
+          
     </div>
 
   );

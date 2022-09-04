@@ -3,14 +3,14 @@ import "./itemDetail.css"
 import Contador from '../Contador/ItemCounts';
 
 
-const ItemDetail=({productos =[]})=>{
+const ItemDetail=({item =[]})=>{
    
-   console.log(productos)
+
     return(
       
         <div className="Container">
            
-            {productos.map((prod) => {
+            {item.map((prod) => {
             
             return  <div className="contenedorDetalle" key={prod.cod_articulo}>
                
@@ -22,10 +22,12 @@ const ItemDetail=({productos =[]})=>{
 
                                 <p className="precioDetalle">U$S {prod.precio}</p>
 
-                                    <Contador/> 
+                                    <Contador cantStock={prod.stock}/> 
                                     <br/>
-                                    <br/>
-                                   
+                                 
+                                        <div className="cantStock">
+                                            <p>Stock: {prod.stock}</p>
+                                        </div>
                                         <div className="contenedorAgregar">
                                             <button className="botonAgregar">Add To Cart</button>
                                         </div>

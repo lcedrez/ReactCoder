@@ -76,5 +76,5 @@ export const stock=[
                         stock:50,
                         subTotal:60.00
                         }
-                    
+                 
 ]    

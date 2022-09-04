@@ -9,12 +9,13 @@ import ItemDetail from "../ItemDetail/ItemDetail"
 const ItemDetailContainer = () =>{
   
 
-    const [productos,setProductos]=useState(null)   
+    const [item,setItem]=useState([])   
 
    useEffect(()=>{
         pedirDatos()
         .then((res)=>{
-            setProductos(res.filter((prod)=>prod.cod_articulo===1144))
+            setItem(res.filter((prod)=>prod.cod_articulo===1144))
+            
            
         })
         .catch((error)=>{
@@ -23,14 +24,14 @@ const ItemDetailContainer = () =>{
         .finally(()=>{
 
         })
-
+        
     },[])
         
-    console.log(productos)
+    console.log(item)
         return(
 
             <div>
-                <ItemDetail productos={productos}/>
+                <ItemDetail item={item}/>
                 
             </div>
         )
@@ -39,3 +40,4 @@ const ItemDetailContainer = () =>{
 export default ItemDetailContainer
 
 //<ItemDetail productos={productos.cod_articulo}/>
+//setItem(res.filter((prod)=>prod.cod_articulo===1144))
