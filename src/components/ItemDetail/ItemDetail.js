@@ -22,7 +22,7 @@ const ItemDetail=({item =[]})=>{
 
                                 <p className="precioDetalle">U$S {prod.precio}</p>
 
-                                    <Contador cantStock={prod.stock}/> 
+                                    <Contador cantStock={prod}/> 
                                     <br/>
                                  
                                         <div className="cantStock">
