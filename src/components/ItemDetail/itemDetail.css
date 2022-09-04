@@ -1,0 +1,52 @@
+.contenedorImgDetalle img{
+    width:560px;
+    border:1px solid black;
+    
+}
+
+.contenedorDetalleDerecha{
+    flex-direction: column;
+    padding-left: 90px;
+}
+
+.tituloDetalle{
+    width: 400px;
+    line-height: 1.2;
+    padding-bottom: 0.5rem;
+}
+
+.precioDetalle{
+    padding-top: 10px;
+    font-size: 20px;
+}
+
+.contenedorAgregar{
+    padding-top: 40px;
+}
+
+.contenedorDetalle{
+    display: flex;
+    padding-left: 150px;
+    padding-bottom: 80px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+    align-content: flex-end;
+    flex-wrap: nowrap;
+}
+.botonAgregar:hover {
+    background: #f9fafa;
+    color: #080808 ;
+  }
+
+.botonAgregar{
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #080808;  
+}
+
+.contenedorDetalleDerecha{
+    display: flex;
+}

@@ -23,30 +23,28 @@ const Contador =()=>{
 
 return(
     
-        <div className="container">
-            <h2>Items</h2>
-            <hr/>
-            <div className="stockArticulos">
-                    <h3>Cantidad Stock : {stock}</h3>
-            </div>
+        <div className="contenedorPadreContador">
+                <h5>Quantity</h5>
             <div className="contenedorCounter">
-                <div className="ContenedorBoton">
-                  
-                    <button onClick={handleRestar} className="botonItems">-</button>
-                   
-                </div>
-            <div className="contenedorItem">
-                <span className="cantItem">{counter}</span>
-            </div >
-                <div className="ContenedorBoton">
+            
+                <div className="contenedorItem">
                     
-                    <button onClick={handleSumar}  className="botonItems">+</button>
+                    <span className="cantItem">{counter}</span>
                     
+                </div >
+                    <div className="ContenedorBoton">
+                        
+                        <button onClick={handleRestar} className="botonItems">-</button>
+                        
+                    </div>
+                        <div className="ContenedorBoton">
+                           
+                            <button onClick={handleSumar}  className="botonItems">+</button>
+                            
+                            
+                        </div>
                 </div>
-            </div>
-            <div className="contenedorAgregar">
-            <button className="botonAgregar">Agregar al Carrito</button>
-            </div>
+            
         </div>
 
     )

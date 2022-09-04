@@ -1,0 +1,58 @@
+
+import "./itemDetail.css"
+import Contador from '../Contador/ItemCounts';
+
+
+const ItemDetail=({productos =[]})=>{
+   
+   console.log(productos)
+    return(
+      
+        <div className="Container">
+           
+            {productos.map((prod) => {
+            
+            return  <div className="contenedorDetalle" key={prod.cod_articulo}>
+               
+                        <div className="contenedorImgDetalle">
+                           <img src={prod.imagen}></img>
+                        </div>  
+                            <div className="contenedorDetalleDerecha">
+                                <h2 className="tituloDetalle">{prod.nombre}</h2>
+
+                                <p className="precioDetalle">U$S {prod.precio}</p>
+
+                                    <Contador/> 
+                                    <br/>
+                                    <br/>
+                                   
+                                        <div className="contenedorAgregar">
+                                            <button className="botonAgregar">Add To Cart</button>
+                                        </div>
+                                        <br/>   
+                                        <div className="contenedorDescripcion">
+                                            <p>{prod.descripcion}</p>
+                                        </div>
+                            </div> 
+                    </div>
+                
+            })}
+
+        </div>
+        
+    )
+}
+        
+    
+
+
+export default ItemDetail
+/*
+<img src={prod.imagen}></img>
+<h4 className="tituloCard">{prod.nombre}</h4>
+<p className="precioCard">U$S {prod.precio}</p>
+<small>Stock:{prod.stock}</small>
+<div className="contenedorAgregar">
+    <button className="botonAgregar">Ver Detalle</button>
+</div>
+*/
