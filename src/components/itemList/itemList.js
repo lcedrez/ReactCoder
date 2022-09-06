@@ -1,6 +1,8 @@
 
 import "./itemList.css"
 
+import Item from "../Item/item"
+
 
 const ItemList=({productos =[]})=>{
    
@@ -9,20 +11,8 @@ const ItemList=({productos =[]})=>{
       
         <div className="Container">
            
-            {productos.map((prod) => {
+            {productos.map((prod) => <Item producto={prod} key={prod.cod_articulo}/>)}
             
-            return  <div className="cardContainer" key={prod.cod_articulo}>
-                             <img src={prod.imagen}></img>
-                            <h4 className="tituloCard">{prod.nombre}</h4>
-                            <p className="precioCard">U$S {prod.precio}</p>
-                            <small>Stock:{prod.stock}</small>
-                            <div className="contenedorAgregar">
-                                <button className="botonAgregar">Ver Detalle</button>
-                            </div>
-                    </div>
-                    
-            })}
-
         </div>
         
     )

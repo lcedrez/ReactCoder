@@ -1,16 +1,17 @@
 import './NavBar.css';
+import { Link } from 'react-router-dom';
 
 const NavBar =()=> {
     return(
     <div className='navContainer'>
         <div class="topnav">
-            <a class="active" href="#Inicio">Inicio</a>
-            <a href="#Beatles Outlet">Beatles Outlet</a>
-            <a href="#Media">Media</a>
-            <a href="#Toys and Games">Toys and Games</a>
-            <a href="#Home">Home</a>
-            <a href="#Accesories">Accesories</a>
-            <a href="#Outfit">Outfit</a>
+            <Link to='/'>Inicio</Link>
+            <Link to='/Articulo/Outlet'>Beatles Outlet</Link>
+            <Link to='/Articulo/Media'>Media</Link>
+            <Link to='/Articulo/Toy'>Toys and Games</Link>
+            <Link to='/Articulo/Home'>Home</Link>
+            <Link to='/Articulo/Accesories'>Accesories</Link>
+            <Link to='/Articulo/Outfit'>Outfit</Link>
         </div>
     </div>
     )

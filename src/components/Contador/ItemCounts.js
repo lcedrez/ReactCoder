@@ -2,12 +2,12 @@ import { useState } from "react"
 import "./ItemCounts.css"
 
 const Contador =(cantStock)=>{
-  const stock=50
+  
   console.log(cantStock)
     const[counter,setCounter]=useState(1)
     
     const handleSumar=()=>{
-      if(counter < cantStock.cantStock)
+      if(counter < cantStock.cantStock.stock)
       {
         
        setCounter(counter+1)

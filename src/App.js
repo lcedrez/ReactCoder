@@ -1,50 +1,51 @@
 
 import './App.css';
-import NavBar from './components/NavBar/NavBar';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import CartWidget from './components/CartWidget/CartWidget'; 
-import Logo from './assets/img/LogoStoreUy.jpg';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import Footer from './components/Footer/footer';
 import ItemDetailContainer from './components/itemDetailContainer/itemDetailContainer';
 import {BrowserRouter,Routes,Route} from 'react-router-dom'
-import TituloInicio from './components/Titulos/tituloInicio';
 import PieDePagina from './components/pieDePagina/pieDePagina';
-import LogoNav from './components/Logo/LogoNav';
+import Header from './components/Header/header';
+import Outlet from './components/outlet/outlet';
+import Home from './components/Home/Home';
+import Accesories from './components/Accesories/Accesories';
+import Media from './components/Media/Media';
+import ToysAndGames from './components/ToysAndGames/ToysAndGames';
+import Outfit from './components/Outfit/outfit';
+
 
 const App = ()=> {
   return (
-   
-    <div className="App">
-       
+    <BrowserRouter>
 
-         
 
-            <header className="HeaderApp">  
+          <div className="App">
+          
+           <Header/>
+           
+              <Routes>
+                <Route path='/' element={ <ItemListContainer/> }/>
+                
+                <Route path='/item/:cod_articulo' element={<ItemDetailContainer />}/>
+                <Route path='/Articulo/:categoria' element={<ItemListContainer/>}/>
+                <Route path="/Outlet" element={<Outlet/>}/>
+                <Route path="/Media" element={<Media/>}/>
+                <Route path="/Toy" element={<ToysAndGames/>}/>
+                <Route path="/Home" element={<Home/>}/>
+                <Route path="/Outfit" element={<Outfit/>}/>
+                <Route path="/Accesories" element={<Accesories/>}/>
+              </Routes>
             
-            <div className='navContainer'>
-              <CartWidget/>
-                <NavBar/>
-                <div className='logo'>
-                    <img src={Logo} alt="Logo" />
-                </div>
-              
-            </div>
-          </header>
-          
-          <TituloInicio/>
-          
-          
-                            
-            <br/>
-            <br/>
-            <br/>
-          <ItemDetailContainer/>
-          <Footer/>
-          <PieDePagina/>
-          
-    </div>
+                <br/>
+                <br/>
+                <br/>
 
+              <Footer/>
+              <PieDePagina/>
+              
+        </div>
+    </BrowserRouter>
   );
 }
 

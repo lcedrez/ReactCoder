@@ -19,7 +19,7 @@ export const stock=[
             descripcion:'Show your love for The Beatles with this crewneck sweatshirt!',
             precio:65.00,
             descuento:0,
-            categoria:'Outfit',
+            categoria:'Outlet',
             color:'Blue',
             imagen:'../../../Imagenes/LetItbeCanguro.jfif',
             stock:70,

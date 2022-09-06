@@ -1,14 +1,17 @@
 
-const Item=(producto)=>{
 
+const Item=({producto})=>{
+console.log(producto)
     return( 
-            <div>
-                    <img src={producto.imagen}></img>
-                    <h4>{producto.nombre}</h4>
-                    <p>Precio:U$S {producto.precio}</p>
-                    <small>Stock:{producto.stock}</small>
-                    <p>{producto.descripcion}</p>
-            </div>
+        <div className="cardContainer" key={producto.cod_articulo}>
+                        <img src={producto.imagen}></img>
+                <h4 className="tituloCard">{producto.nombre}</h4>
+                <p className="precioCard">U$S {producto.precio}</p>
+                <small>Stock:{producto.stock}</small>
+                <div className="contenedorAgregar">
+                        <button className="botonAgregar">Ver Detalle</button>
+                </div>
+        </div>
     )
 }
 
