@@ -13,7 +13,7 @@ const ItemDetail=({item})=>{
         <div className="contenedorDetalle" key={item.cod_articulo}>
           
                    <div className="contenedorImgDetalle">
-                      <img src={item.imagen}></img>
+                      <img src={item.imagen} ></img>
                    </div>  
                        <div className="contenedorDetalleDerecha">
                            <h2 className="tituloDetalle">{item.nombre}</h2>

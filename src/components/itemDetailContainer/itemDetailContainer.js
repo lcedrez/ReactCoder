@@ -4,7 +4,6 @@ import { pedirDatos } from "../../Helpers/pedirDatos"
 
 import ItemDetail from "../ItemDetail/ItemDetail"
 import { useParams } from "react-router-dom"
-import CircleLoader from "react-spinners/CircleLoader";
 import BarLoader from "react-spinners/BarLoader";
 
 
@@ -15,7 +14,7 @@ const ItemDetailContainer = () =>{
     const [item,setItem]=useState(null)  
     const[loading,setLoading]=useState(true) 
     const{cod_articulo}=useParams()
-    
+
 
    useEffect(()=>{
     setLoading(true)
@@ -27,6 +26,7 @@ const ItemDetailContainer = () =>{
         })
         .catch((error)=>{
             console.log(error)
+            
         })
         .finally(()=>{
             setLoading(false)

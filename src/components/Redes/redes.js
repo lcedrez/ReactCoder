@@ -1,5 +1,4 @@
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faCoffee } from '@fortawesome/free-solid-svg-icons';
 import {faTwitter,faYoutube,faInstagram,faSpotify,faFacebook } from '@fortawesome/free-brands-svg-icons';    
 import './redes.css';
 
