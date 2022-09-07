@@ -75,6 +75,15 @@ export const stock=[
                         imagen:'../../../Imagenes/UkuleleAbbey.jfif',
                         stock:50,
                         subTotal:60.00
-                        }
+                        },
+                      
+                        {cod_articulo:7744,nombre:'Yellow Submarine Port Hole',descripcion:"Warm, cozy, and stylish navy blue beanie with embroidered patches of the guys in their Yellow Submarine.",precio:40.00,descuento:0,categoria:"Accesories",color:"Black,Red,White",imagen:"../../../Imagenes/gorroYsub.jfif",stock:5,subTotal:40.00},
+
+                        {cod_articulo:8844,nombre:"I Love The Beatles Pin","descripcion":"I Love The Beatles Pin.",precio:20.00,descuento:10,categoria:"Accesories",color:"Red,White",imagen:"../../../Imagenes/PIN.jfif",stock:10,subTotal:10.00},
+                        {cod_articulo:1155,nombre:"Hornby London Bus",descripcion:"Hornby London Bus.",precio:50.00,descuento:0,categoria:"Toy",color:"Red,Black",imagen:"../../../Imagenes/BusBeatles.jpg",stock:1,"subTotal":50.00},
+
+                        {cod_articulo:2255,nombre:"Let It Be Cookie Jar","descripcion":"Show your love for The Beatles with this iconic cookie jar!",precio:59.00,descuento:0,categoria:"Accesories",color:"Black",imagen:"../../../Imagenes/letitbecockjair.jfif",stock:11,"subTotal":59.00}
+
+
                  
 ]    

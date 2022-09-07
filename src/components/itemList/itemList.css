@@ -25,6 +25,7 @@
 
 .cardContainer img{
     width: 280px;
+    cursor: pointer;
 }
 
 .tituloCard{

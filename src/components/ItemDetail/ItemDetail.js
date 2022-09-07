@@ -4,7 +4,7 @@ import Contador from '../Contador/ItemCounts';
 
 
 const ItemDetail=({item})=>{
-console.log(item)
+
     return(
         <div className="Container">
            
