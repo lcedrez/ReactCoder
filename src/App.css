@@ -11,17 +11,18 @@
   position: fixed;
   background-color:white;
   top: 0;
-
   width: 100%
 
 }
+
 
 
 .navContainer{
   display:flex;
   flex-direction: row-reverse;
   justify-content: space-between;
- 
+  height: 65px;
+  border-bottom: 1px solid #000;
  
 }
 

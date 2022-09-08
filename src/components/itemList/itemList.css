@@ -9,6 +9,8 @@
     justify-items: center;
     align-content: space-around;
     align-items: stretch;
+   
+
     
 }
 
@@ -29,6 +31,7 @@
     padding: 15px 15px 35px;
     display: flex;
     flex-wrap: wrap;
+  height: 90px;
 }
 
 .contenedorNombPrec:hover  {
@@ -60,4 +63,6 @@
 .precioCard{
     font-size: 18px;
     font-family:Arial, Helvetica, sans-serif;
+    
 }
+
