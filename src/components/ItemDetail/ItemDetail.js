@@ -1,9 +1,17 @@
 
 import "./itemDetail.css"
 import Contador from '../Contador/ItemCounts';
-
+import { useState } from "react"
 
 const ItemDetail=({item})=>{
+
+    const[cantidad,setCantidad]=useState(1)
+
+    const handleAgregar=()=>{
+        console.log({...item,cantidad })
+    }
+
+
 
     return(
         <div className="Container">
@@ -20,15 +28,16 @@ const ItemDetail=({item})=>{
 
                            <p className="precioDetalle">U$S {item.precio}</p>
 
-                               <Contador cantStock={item}/> 
+                               <Contador cantStock={item.stock} 
+                               counter={cantidad}
+                               setCounter={setCantidad}
+                               /> 
                                <br/>
                             
                                    <div className="cantStock">
                                        <p>Stock: {item.stock}</p>
                                    </div>
-                                   <div className="contenedorAgregar">
-                                       <button className="botonAgregar">Add To Cart</button>
-                                   </div>
+                                 
                                    <br/>   
                                    <div className="contenedorDescripcion">
                                        <p>{item.descripcion}</p>
