@@ -56,7 +56,3 @@ const ItemDetailContainer = () =>{
 }
 export default ItemDetailContainer
 
-//  <ItemDetail item={item}/>
-
-//    loading ? <center>< CircleLoader   color="hsla(168, 0%, 0%, 1)" size={50}/></center> : 
-//<ItemDetail item={item}/> 

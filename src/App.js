@@ -13,6 +13,7 @@ import Accesories from './components/Accesories/Accesories';
 import Media from './components/Media/Media';
 import ToysAndGames from './components/ToysAndGames/ToysAndGames';
 import Outfit from './components/Outfit/outfit';
+import Cart from './components/Cart/cart';
 
 
 const App = ()=> {
@@ -26,7 +27,7 @@ const App = ()=> {
            
               <Routes>
                 <Route path='/' element={ <ItemListContainer/> }/>
-                
+                <Route path='/Cart' element={<Cart/>}/>
                 <Route path='/item/:cod_articulo' element={<ItemDetailContainer />}/>
                 <Route path='/Articulo/:categoria' element={<ItemListContainer/>}/>
                 <Route path="/Outlet" element={<Outlet/>}/>
