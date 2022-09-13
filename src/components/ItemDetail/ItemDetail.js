@@ -3,13 +3,27 @@ import "./itemDetail.css"
 import Contador from '../Contador/ItemCounts';
 import { useState } from "react"
 import Select from "../Select/select";
-import { Link } from 'react-router-dom';
+import { useContext } from "react";
+import { CartContext } from "../../Context/CartContext";
+
+
+
+
 
 
 const ItemDetail=({item})=>{
 
+    const {cart,addToCart,ExisteEnCarrito}=useContext(CartContext)
     const[cantidad,setCantidad]=useState(1)
     const [talle, setTalle] = useState(item.talles[0].value)
+    const [botonActivo,setBotonActivo]=useState(true);
+
+    const handledisabledBtn=()=>{
+        return(
+            false
+        )
+    }
+
 
     const handleAgregar=()=>{
         const itemToCart={
@@ -20,7 +34,9 @@ const ItemDetail=({item})=>{
             cantidad,
             talle
         }
-        console.log(itemToCart)
+       console.log( ExisteEnCarrito(item.cod_articulo))
+        addToCart(itemToCart)
+        console.log(cart)
        
     }
 
@@ -54,10 +70,10 @@ const ItemDetail=({item})=>{
                                    </div>
                                   
                                    <div className="contenedorAgregar">
-                                        <Link  to={`/Cart`}>
+                                        
         
-                                            <button className="botonAgregar" onClick={handleAgregar}>Add To Cart</button>
-                                        </Link> ;
+                                            <button className="botonAgregar" disabled={!botonActivo} onClick={handleAgregar}>Add To Cart</button>
+                                        
                                     </div>
                                  
                                    <br/>   
