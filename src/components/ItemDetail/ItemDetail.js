@@ -21,7 +21,7 @@ const ItemDetail=({item})=>{
             talle
         }
         console.log(itemToCart)
-        
+       
     }
 
 
@@ -54,8 +54,10 @@ const ItemDetail=({item})=>{
                                    </div>
                                   
                                    <div className="contenedorAgregar">
-                                   <Link  to={`/Cart`}></Link> 
-                                        <button className="botonAgregar" onClick={handleAgregar}>Add To Cart</button>
+                                        <Link  to={`/Cart`}>
+        
+                                            <button className="botonAgregar" onClick={handleAgregar}>Add To Cart</button>
+                                        </Link> ;
                                     </div>
                                  
                                    <br/>   
