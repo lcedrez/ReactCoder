@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 
 const Item=({producto})=>{
-console.log(producto)
+
     return( 
         <div className="cardContainer" >
                 

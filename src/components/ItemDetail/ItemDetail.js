@@ -5,6 +5,9 @@ import { useState } from "react"
 import Select from "../Select/select";
 import { useContext } from "react";
 import { CartContext } from "../../Context/CartContext";
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
+import { Link } from 'react-router-dom';
 
 
 
@@ -16,13 +19,8 @@ const ItemDetail=({item})=>{
     const {cart,addToCart,ExisteEnCarrito}=useContext(CartContext)
     const[cantidad,setCantidad]=useState(1)
     const [talle, setTalle] = useState(item.talles[0].value)
-    const [botonActivo,setBotonActivo]=useState(true);
+   
 
-    const handledisabledBtn=()=>{
-        return(
-            false
-        )
-    }
 
 
     const handleAgregar=()=>{
@@ -34,14 +32,26 @@ const ItemDetail=({item})=>{
             cantidad,
             talle
         }
-       console.log( ExisteEnCarrito(item.cod_articulo))
-        addToCart(itemToCart)
-        console.log(cart)
+        ExisteEnCarrito(item.cod_articulo)
+        ? alert("Ya Existe!!")
+        : addToCart(itemToCart)
+
+        
        
     }
+/*
+    const MySwal = withReactContent(Swal)
 
-
-
+    MySwal.fire({
+        title: <p>Hello World</p>,
+        didOpen: () => {
+          // `MySwal` is a subclass of `Swal` with all the same instance & static methods
+          MySwal.showLoading()
+        },
+      }).then(() => {
+        return MySwal.fire(<p>Shorthand works too</p>)
+      })
+*/
     return(
         <div className="Container">
            
@@ -58,28 +68,35 @@ const ItemDetail=({item})=>{
                            <p className="precioDetalle">U$S {item.precio}</p>
 
                            <Select options={item.talles} onSelect={setTalle}/>
+                                {
 
-                               <Contador cantStock={item.stock} 
-                               counter={cantidad}
-                               setCounter={setCantidad}
+                                    ExisteEnCarrito(item.cod_articulo)
+                                    ?  <Link to="/cart" className="botonAgregar">Terminar mi Compra</Link>
+                                    :
+                                     <Contador cantStock={item.stock} 
+                                    counter={cantidad}
+                                    setCounter={setCantidad}
                                /> 
-                               <br/>
-                            
-                                   <div className="cantStock">
-                                       <p>Stock: {item.stock}</p>
-                                   </div>
-                                  
-                                   <div className="contenedorAgregar">
-                                        
+                                }
+                               <div className="cantStock">
+                               <br/> 
+                    <p>Stock: {item.stock}</p>
+            </div>
+            <br/>   
         
-                                            <button className="botonAgregar" disabled={!botonActivo} onClick={handleAgregar}>Add To Cart</button>
-                                        
-                                    </div>
-                                 
-                                   <br/>   
-                                   <div className="contenedorDescripcion">
-                                       <p>{item.descripcion}</p>
-                                   </div>
+            <div className="contenedorAgregar">
+                
+
+                    <button className="botonAgregar" onClick={handleAgregar}>Add To Cart</button>
+                
+            </div>
+        
+            <br/>   
+            <div className="contenedorDescripcion">
+                <p>{item.descripcion}</p>
+            </div>
+                              
+                              
                        </div> 
                </div>
            

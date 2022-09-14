@@ -14,30 +14,16 @@ import Media from './components/Media/Media';
 import ToysAndGames from './components/ToysAndGames/ToysAndGames';
 import Outfit from './components/Outfit/outfit';
 import Cart from './components/Cart/cart';
-import  {CartContext } from './Context/CartContext';
-import { useState } from 'react';
+import { CartProvider } from './Context/CartContext';
+
 
 
 const App = ()=> {
 
-  const[cart,setCart]=useState([])
 
-  const addToCart=(item)=>{
-    setCart([...cart,item])
-
-  }
-
-  const ExisteEnCarrito=(cod_articulo)=>{
-    return cart.some((item)=> item.cod_articulo===cod_articulo)
-  }
 
   return (
-    <CartContext.Provider value={{
-
-      cart,
-      addToCart,
-      ExisteEnCarrito
-    }}>
+    <CartProvider>
         <BrowserRouter>
 
 
@@ -67,7 +53,7 @@ const App = ()=> {
                   
             </div>
         </BrowserRouter>
-    </CartContext.Provider>
+    </CartProvider>
   );
 }
 

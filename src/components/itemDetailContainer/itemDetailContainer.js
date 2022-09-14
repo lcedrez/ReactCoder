@@ -34,7 +34,7 @@ const ItemDetailContainer = () =>{
         
     },[])
     
-    console.log(item)
+ 
         return(
 
             <div>
