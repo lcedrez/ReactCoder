@@ -29,6 +29,7 @@ const ItemDetail=({item})=>{
             precio:item.precio,
             nombre:item.nombre,
             descripcion:item.descripcion,
+            imagen:item.imagen,
             cantidad,
             talle
         }
@@ -39,19 +40,7 @@ const ItemDetail=({item})=>{
         
        
     }
-/*
-    const MySwal = withReactContent(Swal)
 
-    MySwal.fire({
-        title: <p>Hello World</p>,
-        didOpen: () => {
-          // `MySwal` is a subclass of `Swal` with all the same instance & static methods
-          MySwal.showLoading()
-        },
-      }).then(() => {
-        return MySwal.fire(<p>Shorthand works too</p>)
-      })
-*/
     return(
         <div className="Container">
            
@@ -67,11 +56,15 @@ const ItemDetail=({item})=>{
 
                            <p className="precioDetalle">U$S {item.precio}</p>
 
-                           <Select options={item.talles} onSelect={setTalle}/>
+                           <Select className="size" options={item.talles} onSelect={setTalle}/>
+                           <br/>
                                 {
 
                                     ExisteEnCarrito(item.cod_articulo)
-                                    ?  <Link to="/cart" className="botonAgregar">Terminar mi Compra</Link>
+                                    ?  <Link to="/cart" 
+                                    className="botonTerminar">Terminar mi Compra
+                                    
+                                    </Link>
                                     :
                                      <Contador cantStock={item.stock} 
                                     counter={cantidad}

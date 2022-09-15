@@ -13,7 +13,7 @@ const CartWidget = ()=>{
     return(
         <div className='contenedorCarrito'>
            <Link  to={`/Cart`}>
-                <FontAwesomeIcon icon={faCartShopping}/>
+                <FontAwesomeIcon className='carro' icon={faCartShopping}/>
             </Link> 
             <div className='contPadreItem'>
                 <div className='contItem'>
