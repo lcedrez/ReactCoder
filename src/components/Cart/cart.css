@@ -6,6 +6,27 @@
     width:130px
 }
 
+.tituloMiCarrito{
+
+    padding-left: 430px;
+}
+
+.titSeguirComp{
+    padding-left: 10px;
+}
+
+.trash{
+    font-size: 26px;
+    cursor: pointer;
+}
+.carritoDetallesIt{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: flex-end;
+    align-content: center;
+}
 
 .contenedorDetCart{
     display: flex;

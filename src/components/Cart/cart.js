@@ -1,11 +1,14 @@
 import { useContext } from "react"
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faClockRotateLeft}  from '@fortawesome/free-solid-svg-icons';
+import {faTrash}  from '@fortawesome/free-solid-svg-icons';
 import { CartContext } from "../../Context/CartContext"
+import { Link } from 'react-router-dom';
 import './cart.css'
 
 const Cart =()=>{
 
-    const{cart,cartTotal,emptyCart}=useContext(CartContext)
+    const{cart,cartTotal,emptyCart,itemsEnCarrito,eliminarItem}=useContext(CartContext)
     console.log(cart)
     return(
         <div>
@@ -14,13 +17,22 @@ const Cart =()=>{
             <br/>
             <br/>
             <div className="tituloCarrito">
-                <h1>MI CARRITO!</h1>
+            <h1><FontAwesomeIcon icon={faClockRotateLeft} />  PEDIDO EN CURSO</h1>
+                
             </div>
             <br/>
             <br/>
-         
+                <div className="carritoDetallesIt">
+                    
+                    <h3 className="tituloMiCarrito">MI CARRITO <span>({itemsEnCarrito() } Item)</span></h3>
+                    <Link  to={`/`}> 
+                    <h6 className="titSeguirComp">Continúa Comprando</h6>
+                    </Link>
+                    
+                </div>
             {cart.map((item)=>(
                 <div key={item.cod_articulo}>
+                   
                     <div className="contenedorDetCart">
                         <div className="contImgCart">
                             <img src={item.imagen} ></img>
@@ -43,8 +55,9 @@ const Cart =()=>{
                                             </li>
                                             
                             </ul>
-                                   
+                           
                             </div>
+                            <FontAwesomeIcon className="trash" icon={faTrash} onClick={()=>eliminarItem(item.cod_articulo)}/>
                             <hr/>
                         </div>
                     </div>

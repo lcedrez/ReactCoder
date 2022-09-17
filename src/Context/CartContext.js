@@ -26,6 +26,11 @@ export const CartProvider=({children})=>{
     const cartTotal=()=>{
         return cart.reduce((acc,item)=>acc + item.cantidad * item.precio,0)
     }
+
+    const eliminarItem=(cod_articulo)=>{
+      setCart(cart.filter((item)=>item.cod_articulo!==cod_articulo))
+
+    }
   
     const emptyCart=()=>{
         setCart([])
@@ -44,7 +49,8 @@ export const CartProvider=({children})=>{
             ExisteEnCarrito,
             itemsEnCarrito,
             cartTotal,
-            emptyCart
+            emptyCart,
+            eliminarItem
           }}>
             {children}
         </CartContext.Provider>
