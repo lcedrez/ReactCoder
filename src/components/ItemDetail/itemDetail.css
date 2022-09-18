@@ -34,6 +34,7 @@
     align-items: stretch;
     align-content: flex-end;
     flex-wrap: nowrap;
+    
 }
 .botonAgregar:hover {
     background: #f9fafa;
@@ -71,4 +72,8 @@
 
 .contenedorDetalleDerecha{
     display: flex;
+}
+
+.customClass{
+    color:black;
 }

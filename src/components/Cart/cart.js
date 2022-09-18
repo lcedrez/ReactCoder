@@ -4,7 +4,8 @@ import {faClockRotateLeft}  from '@fortawesome/free-solid-svg-icons';
 import {faTrash}  from '@fortawesome/free-solid-svg-icons';
 import { CartContext } from "../../Context/CartContext"
 import { Link } from 'react-router-dom';
-import './cart.css'
+import './cart.css';
+import ContadorCarrito from "../Contador/ContadorCarrito";
 
 const Cart =()=>{
 
@@ -42,6 +43,7 @@ const Cart =()=>{
                             <div className="contDetGral">
                             <ul className="itemListado"> 
                                
+                                 
                                     <li>
                                         <em className="size">Size: {item.talle}</em>
                                     </li>
@@ -52,10 +54,15 @@ const Cart =()=>{
                                                 <em className="precDet">U$S {item.precio}</em>
                                             </li>
                                             
+                                            
                             </ul>
                            
                             </div>
-                            <FontAwesomeIcon className="trash" icon={faTrash} onClick={()=>eliminarItem(item.cod_articulo)}/>
+                                <div className="contadorEliminar">
+                                    <ContadorCarrito 
+                                    />
+                                        <FontAwesomeIcon className="trash" icon={faTrash} onClick={()=>eliminarItem(item.cod_articulo)}/>
+                                </div>
                             <hr/>
                         </div>
                     </div>

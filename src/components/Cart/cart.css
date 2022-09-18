@@ -32,9 +32,10 @@
     display: flex;
     align-items: flex-end;
     margin-left: 430px;
-   
+    border: 0.5px solid black;
     width: 500px;
-    border-radius: 10px;
+    justify-content: space-between;
+   
 }
 .contDetGral{
     display: flex;
@@ -53,9 +54,17 @@
     margin-left: 8px;
 }
 .containerTodoDetalle{
-
+    padding-right: 40px;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     justify-content: center;
+}
+
+.nomDetCart{
+padding-top: 10px;
+
+}
+.contadorEliminar{
+    display: flex   ;
 }

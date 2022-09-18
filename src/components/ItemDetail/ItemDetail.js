@@ -1,15 +1,13 @@
-
 import "./itemDetail.css"
 import Contador from '../Contador/ItemCounts';
 import { useState } from "react"
 import Select from "../Select/select";
 import { useContext } from "react";
 import { CartContext } from "../../Context/CartContext";
-import Swal from 'sweetalert2';
-import withReactContent from 'sweetalert2-react-content';
 import { Link } from 'react-router-dom';
-import Item from "../Item/item";
-
+import AlertaCarrito from "../Alertas/AlertaCarrito";
+import React from 'react';
+import AlertaAgregado from "../Alertas/AlertaAgregado";
 
 
 
@@ -41,16 +39,16 @@ const ItemDetail=({item})=>{
             descripcion:item.descripcion,
             imagen:item.imagen,
             cantidad,
-            talle
+            talle,
+           
         }
         ExisteEnCarrito(item.cod_articulo)
-        ? Swal.fire({
-            icon: 'warning',
-            text: 'Articulo ya agregado!!',
-            
-          })
-        : addToCart(itemToCart)
-
+        ?AlertaCarrito()
+        :addToCart(itemToCart)
+        
+         
+       
+        
         
        
     }
