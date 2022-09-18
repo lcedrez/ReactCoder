@@ -159,7 +159,7 @@ export const stock=[
                     },
                     {
                         cod_articulo:6644,
-                        nombre:'Abbey Road Ukulele',
+                        nombre:'<Abbey Road Ukulele>',
                         descripcion:'Totally unique, with iconic graphics from 1965 to 1970, the Beatles nylon strung ukuleles make an ideal beginner s instrument, or are perfect for avid fans and collectors.',
                         precio:60.00,
                         descuento:0,

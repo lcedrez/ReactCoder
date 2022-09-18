@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react"
-
-import { pedirDatos } from "../../Helpers/pedirDatos"
-
+import { db } from "../../FireBase/config"
+import { doc,getDoc } from "firebase/firestore"
 import ItemDetail from "../ItemDetail/ItemDetail"
 import { useParams } from "react-router-dom"
 import BarLoader from "react-spinners/BarLoader";
@@ -18,9 +17,11 @@ const ItemDetailContainer = () =>{
 
    useEffect(()=>{
     setLoading(true)
-        pedirDatos()
+        const DocRef=doc(db,'articulos',cod_articulo)
+
+        getDoc(DocRef)
         .then((res)=>{
-            setItem(res.find((prod)=>prod.cod_articulo===Number(cod_articulo)))
+           setItem({cod_articulo:res.id,...res.data()})
            
            
         })

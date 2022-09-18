@@ -8,6 +8,7 @@ import { CartContext } from "../../Context/CartContext";
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 import { Link } from 'react-router-dom';
+import Item from "../Item/item";
 
 
 
@@ -18,6 +19,15 @@ const ItemDetail=({item})=>{
 
     const {cart,addToCart,ExisteEnCarrito}=useContext(CartContext)
     const[cantidad,setCantidad]=useState(1)
+  
+    //creo este If para saber si tiene talle
+    if(item.hasOwnProperty("talles"))
+    {
+        console.log("tiene")
+    }
+    else{
+        console.log("NO tiene")
+    }
     const [talle, setTalle] = useState(item.talles[0].value)
    
 
@@ -34,7 +44,11 @@ const ItemDetail=({item})=>{
             talle
         }
         ExisteEnCarrito(item.cod_articulo)
-        ? alert("Ya Existe!!")
+        ? Swal.fire({
+            icon: 'warning',
+            text: 'Articulo ya agregado!!',
+            
+          })
         : addToCart(itemToCart)
 
         

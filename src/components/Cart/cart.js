@@ -9,7 +9,7 @@ import './cart.css'
 const Cart =()=>{
 
     const{cart,cartTotal,emptyCart,itemsEnCarrito,eliminarItem}=useContext(CartContext)
-    console.log(cart)
+   
     return(
         <div>
             <br/>
@@ -41,9 +41,7 @@ const Cart =()=>{
                             <p className="nomDetCart">{item.nombre}</p>
                             <div className="contDetGral">
                             <ul className="itemListado"> 
-                                <li>
-                                    <em className="sku">Sku: {item.cod_articulo}</em>
-                                </li>
+                               
                                     <li>
                                         <em className="size">Size: {item.talle}</em>
                                     </li>

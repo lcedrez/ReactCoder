@@ -7,6 +7,8 @@ import ItemList from "../itemList/itemList"
 import { useParams } from "react-router-dom"
 
 import TituloInicio from "../Titulos/tituloInicio"
+import { db  } from "../../FireBase/config"
+import { collection,getDocs,query,where } from "firebase/firestore"
 
 
 
@@ -20,17 +22,18 @@ const ItemListContainer = () =>{
     
 
     useEffect(()=>{
-        pedirDatos()
-        .then((res)=>{
-            if(!categoria){
-                setProductos(res)
-            }else{
-                setProductos(res.filter((prod)=>prod.categoria===categoria))
-            }
-           
-        })
-        .catch((error)=>{
-            console.log(error)
+     
+        const productosRef=collection(db,'articulos')
+        console.log(productosRef)
+       const q=categoria
+                ? query(productosRef,where('categoria','==',categoria))
+                : productosRef
+
+        getDocs(q)
+        .then((resp)=>{
+            const articulosDB= resp.docs.map((doc)=>({cod_articulo:doc.id, ...doc.data()}))
+            console.log(articulosDB)
+            setProductos(articulosDB)
         })
         .finally(()=>{
 
