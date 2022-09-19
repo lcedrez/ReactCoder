@@ -3,7 +3,9 @@
 }
 
 .contImgCart img{
-    width:130px
+    width:130px;
+    padding-bottom: 10px;
+ 
 }
 
 .tituloMiCarrito{

@@ -6,10 +6,12 @@ import { CartContext } from "../../Context/CartContext"
 import { Link } from 'react-router-dom';
 import './cart.css';
 import ContadorCarrito from "../Contador/ContadorCarrito";
+import { useState } from "react";
 
 const Cart =()=>{
 
     const{cart,cartTotal,emptyCart,itemsEnCarrito,eliminarItem}=useContext(CartContext)
+   
    
     return(
         <div>

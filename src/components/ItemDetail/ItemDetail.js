@@ -6,8 +6,9 @@ import { useContext } from "react";
 import { CartContext } from "../../Context/CartContext";
 import { Link } from 'react-router-dom';
 import AlertaCarrito from "../Alertas/AlertaCarrito";
+
 import React from 'react';
-import AlertaAgregado from "../Alertas/AlertaAgregado";
+
 
 
 
@@ -18,14 +19,8 @@ const ItemDetail=({item})=>{
     const {cart,addToCart,ExisteEnCarrito}=useContext(CartContext)
     const[cantidad,setCantidad]=useState(1)
   
-    //creo este If para saber si tiene talle
-    if(item.hasOwnProperty("talles"))
-    {
-        console.log("tiene")
-    }
-    else{
-        console.log("NO tiene")
-    }
+
+  
     const [talle, setTalle] = useState(item.talles[0].value)
    
 
