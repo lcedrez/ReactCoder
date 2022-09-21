@@ -23,4 +23,3 @@ const Item=({producto})=>{
 
 export default Item
 
-//<Link  to={`/item/${producto.cod_articulo}`}><img src={producto.imagen}/></Link> 

@@ -1,11 +1,7 @@
 import { useEffect, useState } from "react"
-
-import { pedirDatos } from "../../Helpers/pedirDatos"
-
+import BarLoader from "react-spinners/BarLoader";
 import ItemList from "../itemList/itemList"
-
 import { useParams } from "react-router-dom"
-
 import TituloInicio from "../Titulos/tituloInicio"
 import { db  } from "../../FireBase/config"
 import { collection,getDocs,query,where } from "firebase/firestore"
@@ -16,15 +12,15 @@ const ItemListContainer = () =>{
   
 
     const [productos,setProductos]=useState([])   
-
+    const[loading,setLoading]=useState(true) 
     const { categoria }=useParams()
    
     
 
     useEffect(()=>{
-     
+        setLoading(true)
         const productosRef=collection(db,'articulos')
-        console.log(productosRef)
+       
        const q=categoria
                 ? query(productosRef,where('categoria','==',categoria))
                 : productosRef
@@ -32,11 +28,10 @@ const ItemListContainer = () =>{
         getDocs(q)
         .then((resp)=>{
             const articulosDB= resp.docs.map((doc)=>({cod_articulo:doc.id, ...doc.data()}))
-            console.log(articulosDB)
             setProductos(articulosDB)
         })
         .finally(()=>{
-
+            setLoading(false)
         })
 
     },[categoria])
@@ -44,10 +39,14 @@ const ItemListContainer = () =>{
        
 
         return(
-
+          
             <div>
-                <TituloInicio/>
-                <ItemList productos={productos}/>
+            <TituloInicio/>
+                    {
+                        loading ? <center><BarLoader color="#010202" width={500} /></center> :
+                       
+                        <ItemList productos={productos}/>
+                    }
             </div>
         )
    

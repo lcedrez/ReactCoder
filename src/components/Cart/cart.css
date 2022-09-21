@@ -70,3 +70,20 @@ padding-top: 10px;
 .contadorEliminar{
     display: flex   ;
 }
+.contenedorCarritoVacio{
+    background-color: rgb(235, 228, 228);
+    height:300px;
+    width:900px;
+    padding-left: 100px;
+    border-radius: 10px;
+}
+.titCartVac{
+    padding-top: 50px;
+}
+.contPadreVacio{
+    padding-left: 200px;
+}
+
+.contenedorTarjetas{
+    padding-left: 250px;
+}

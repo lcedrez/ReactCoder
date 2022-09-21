@@ -4,20 +4,27 @@ import { Link } from 'react-router-dom';
 import './CartWidget.css';
 import { useContext } from 'react';
 import { CartContext } from '../../Context/CartContext';
-import AlertaCarritoVacio from '../Alertas/AlertaCarritoVacio';
 
+
+
+
+const handlValidarCarrito=(itemsEnCarrito)=>{
+    if(itemsEnCarrito ===0)
+    {
+       console.log("vacioS")
+    }
+}
 
 const CartWidget = ()=>{
 
     const {itemsEnCarrito}=useContext(CartContext)
 
- 
-   
+
     return(
     
         <div className='contenedorCarrito'>
            <Link  to={`/Cart`}>
-                <FontAwesomeIcon className='carro' icon={faCartShopping}/>
+                <FontAwesomeIcon className='carro'  icon={faCartShopping}/>
             </Link> 
             <div className='contPadreItem'>
                 <div className='contItem'>

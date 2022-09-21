@@ -51,7 +51,3 @@ return(
     )
 }
 export default Contador
-/*
-<div className="contenedorAgregar">
-<button className="botonAgregar" onClick={handleAgregar}>Add To Cart</button>
-</div>*/

@@ -11,7 +11,37 @@ import { useState } from "react";
 const Cart =()=>{
 
     const{cart,cartTotal,emptyCart,itemsEnCarrito,eliminarItem}=useContext(CartContext)
-   
+    const[cantidad,setCantidad]=useState(1)
+  
+    if(cart.length===0){
+        return(
+            <div>
+                <br/>
+            <br/>
+            <br/>
+            <br/>
+            
+            
+         
+                <div className="contPadreVacio">
+                    <div className="contenedorCarritoVacio">
+                            <h1 className="titCartVac">¡Hay un carrito que llenar!</h1>
+                                <strong>Actualmente no tenés productos en tu carrito.</strong>
+                                    <p>Buscá entre miles de productos que nosotros los llevamos a tu puerta con hasta 18 cuotas sin interés</p>
+                                        <div className="contenBotonComprar">
+                                        <Link  to={`/`}> 
+                                            <button className="botonAgregar">Buscar Productos</button>
+                                        </Link>
+                                        </div>
+                    </div>
+                </div>  
+
+                <div className="contenedorTarjetas">
+                    <img src="../../../Imagenes/Tarjetas.png"></img>
+                </div>  
+            </div>
+        )
+    }
    
     return(
         <div>
@@ -55,14 +85,17 @@ const Cart =()=>{
                                             <li>
                                                 <em className="precDet">U$S {item.precio}</em>
                                             </li>
+                                            <li>
+                                                <em className="precDet">stock {item.stock}</em>
+                                            </li>
+                                            
                                             
                                             
                             </ul>
                            
                             </div>
                                 <div className="contadorEliminar">
-                                    <ContadorCarrito 
-                                    />
+                                    <ContadorCarrito cantStock={item.stock} counter={item.cantidad} setCounter={setCantidad}/>
                                         <FontAwesomeIcon className="trash" icon={faTrash} onClick={()=>eliminarItem(item.cod_articulo)}/>
                                 </div>
                             <hr/>

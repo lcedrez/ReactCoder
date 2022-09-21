@@ -1,13 +1,13 @@
 import { useState } from "react"
 import "./ContadorCarrito.css"
 
-const ContadorCarrito =({cantStock,counter,setCounter  })=>{
-  
+const ContadorCarrito =({cantStock,counter,setCounter })=>{
     
     const handleSumar=()=>{
+        
       if(counter < cantStock)
       {
-        
+        console.log(counter)
       setCounter(counter+1)
       }
     
@@ -17,7 +17,9 @@ const ContadorCarrito =({cantStock,counter,setCounter  })=>{
     const handleRestar=()=>{
         if( counter > 1)
         {
+           
        setCounter(counter-1)
+      
         }
     }
 
@@ -39,7 +41,7 @@ return(
                     </div>
                         <div className="ContenedorBoton2">
                            
-                            <button onClick={handleSumar}  className="botonItems2">+</button>
+                            <button onClick={handleSumar} className="botonItems2">+</button>
                             
                             
                         </div>
@@ -51,7 +53,3 @@ return(
     )
 }
 export default ContadorCarrito
-/*
-<div className="contenedorAgregar">
-<button className="botonAgregar" onClick={handleAgregar}>Add To Cart</button>
-</div>*/
