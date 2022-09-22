@@ -67,6 +67,7 @@ const ItemDetail=({item})=>{
         }
     
         return(
+           <div>
             <div className="Container">
                
                 
@@ -118,8 +119,12 @@ const ItemDetail=({item})=>{
                            </div> 
                    </div>
         
-    
-       </div>
+                      
+            </div>
+                        <div className="containerListRelac">
+                            <ItemRelac productosRelac={productosRelac}/>
+                        </div> 
+       </div> 
         )
     }
 
