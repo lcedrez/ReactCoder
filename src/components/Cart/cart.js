@@ -10,7 +10,7 @@ import { useState } from "react";
 
 const Cart =()=>{
 
-    const{cart,cartTotal,emptyCart,itemsEnCarrito,eliminarItem}=useContext(CartContext)
+    const{cart,cartTotal,emptyCart,itemsEnCarrito,cartTotalActualiza,eliminarItem}=useContext(CartContext)
     const[cantidad,setCantidad]=useState(1)
   
     if(cart.length===0){
@@ -42,6 +42,7 @@ const Cart =()=>{
             </div>
         )
     }
+    
    
     return(
         <div>
@@ -95,7 +96,7 @@ const Cart =()=>{
                            
                             </div>
                                 <div className="contadorEliminar">
-                                    <ContadorCarrito cantStock={item.stock} counter={item.cantidad} setCounter={setCantidad}/>
+                                    <ContadorCarrito cantStock={item.stock} counter={cantidad} setCounter={setCantidad} cod_articulo={item.cod_articulo} />
                                         <FontAwesomeIcon className="trash" icon={faTrash} onClick={()=>eliminarItem(item.cod_articulo)}/>
                                 </div>
                             <hr/>
@@ -105,7 +106,7 @@ const Cart =()=>{
 
             ))}
             <div className="totales">
-            <h3>Total: U$S{cartTotal()}</h3>
+            <h3>Total: U$S{cartTotalActualiza({cantidad})}</h3>
             <button onClick={emptyCart} className="botonAgregar">Vaciar Carrito</button>
             </div>
         </div>

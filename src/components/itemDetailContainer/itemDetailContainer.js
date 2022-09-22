@@ -48,7 +48,7 @@ const ItemDetailContainer = () =>{
                  
 
                      loading ? <center><BarLoader color="#010202" width={500} /></center> : 
-                     <ItemDetail item={item}/> 
+                     <ItemDetail item={item} /> 
                 }
                 
             </div>

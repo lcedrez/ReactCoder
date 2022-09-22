@@ -1,24 +1,43 @@
 import "./itemDetail.css"
 import Contador from '../Contador/ItemCounts';
-import { useState } from "react"
+import { useEffect, useState } from "react";
 import Select from "../Select/select";
 import { useContext } from "react";
 import { CartContext } from "../../Context/CartContext";
 import { Link } from 'react-router-dom';
 import AlertaCarrito from "../Alertas/AlertaCarrito";
-
 import React from 'react';
-
-
-
+import { collection,getDocs,query,where } from "firebase/firestore"
+import { db  } from "../../FireBase/config";
+import ItemRelac from "../Item/ItemRelac/ItemRelac";
 
 
 const ItemDetail=({item})=>{
-
+    const [productosRelac,setProductosRelac]=useState([])   
     const {cart,addToCart,ExisteEnCarrito}=useContext(CartContext)
     const[cantidad,setCantidad]=useState(1)
     const [talle, setTalle] = useState()
     
+
+    useEffect(()=>{
+       
+        const productosRef=collection(db,'articulos')
+       
+       const q=item.categoria
+                ? query(productosRef,where('categoria','==',item.categoria))
+                : productosRef
+                
+        getDocs(q)
+        .then((resp)=>{
+            const articulosDBCat= resp.docs.map((doc)=>({categoria:doc.categoria, ...doc.data()}))
+            setProductosRelac(articulosDBCat)
+        })
+        .finally(()=>{
+            
+        })
+
+    },[item.categoria])
+      
    
     if(item.hasOwnProperty("talles"))
     {
@@ -30,6 +49,8 @@ const ItemDetail=({item})=>{
                 nombre:item.nombre,
                 descripcion:item.descripcion,
                 imagen:item.imagen,
+                stock:item.stock,
+                categoria:item.categoria,
                 cantidad,
                 talle,
                
@@ -93,11 +114,10 @@ const ItemDetail=({item})=>{
                     <p>{item.descripcion}</p>
                 </div>
                                   
-                                  
+         
                            </div> 
                    </div>
-               
-           
+        
     
        </div>
         )
@@ -112,6 +132,7 @@ const ItemDetail=({item})=>{
             descripcion:item.descripcion,
             imagen:item.imagen,
             stock:item.stock,
+            categoria:item.categoria,
             cantidad,
             
            
@@ -128,61 +149,69 @@ const ItemDetail=({item})=>{
     }
 
     return(
-        <div className="Container">
-           
-            
-            
-        <div className="contenedorDetalle" key={item.cod_articulo}>
-          
-                   <div className="contenedorImgDetalle">
-                      <img src={item.imagen} ></img>
-                   </div>  
-                       <div className="contenedorDetalleDerecha">
-                           <h2 className="tituloDetalle">{item.nombre}</h2>
+        <div>
+                        <div className="Container">
+                        
+                            
+                            
+                            <div className="contenedorDetalle" key={item.cod_articulo}>
+                            
+                                    <div className="contenedorImgDetalle">
+                                        <img src={item.imagen} ></img>
+                                    </div>  
+                                        <div className="contenedorDetalleDerecha">
+                                            <h2 className="tituloDetalle">{item.nombre}</h2>
 
-                           <p className="precioDetalle">U$S {item.precio}</p>
+                                            <p className="precioDetalle">U$S {item.precio}</p>
 
-                         
-                           <br/>
-                                {
+                                            
+                                            <br/>
+                                                    {
 
-                                    ExisteEnCarrito(item.cod_articulo)
-                                    ?  <Link to="/cart" 
-                                    className="botonTerminar">Terminar mi Compra
+                                                        ExisteEnCarrito(item.cod_articulo)
+                                                        ?  <Link to="/cart" 
+                                                        className="botonTerminar">Terminar mi Compra
+                                                        
+                                                        </Link>
+                                                        :
+                                                        <Contador cantStock={item.stock} 
+                                                        counter={cantidad}
+                                                        setCounter={setCantidad}
+                                                /> 
+                                                    }
+                                                <div className="cantStock">
+                                                <br/> 
+                                        <p>Stock: {item.stock}</p>
+                                </div>
+                                <br/>   
+                            
+                                <div className="contenedorAgregar">
                                     
-                                    </Link>
-                                    :
-                                     <Contador cantStock={item.stock} 
-                                    counter={cantidad}
-                                    setCounter={setCantidad}
-                               /> 
-                                }
-                               <div className="cantStock">
-                               <br/> 
-                    <p>Stock: {item.stock}</p>
-            </div>
-            <br/>   
-        
-            <div className="contenedorAgregar">
-                
 
-                    <button className="botonAgregar" onClick={handleAgregar}>Add To Cart</button>
-                
-            </div>
-        
-            <br/>   
-            <div className="contenedorDescripcion">
-                <p>{item.descripcion}</p>
-            </div>
-                              
-                              
-                       </div> 
-               </div>
-           
-       
+                                        <button className="botonAgregar" onClick={handleAgregar}>Add To Cart</button>
+                                    
+                                </div>
+                            
+                                <br/>   
+                                    <div className="contenedorDescripcion">
+                                        <p>{item.descripcion}</p>
+                                    </div>
+                        
+                                </div> 
+                                    
+                            </div>
+                            
+                                    
 
-   </div>
+                </div>
+                        <div className="containerListRelac">
+                            <ItemRelac productosRelac={productosRelac}/>
+                        </div> 
+    </div>
     )
+
+    
+
 }
 export default ItemDetail
 

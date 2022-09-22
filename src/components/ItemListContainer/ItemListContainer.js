@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
 import BarLoader from "react-spinners/BarLoader";
-import ItemList from "../itemList/itemList"
-import { useParams } from "react-router-dom"
-import TituloInicio from "../Titulos/tituloInicio"
-import { db  } from "../../FireBase/config"
+import ItemList from "../itemList/itemList";
+import { useParams } from "react-router-dom";
+import TituloInicio from "../Titulos/tituloInicio";
+import { db  } from "../../FireBase/config";
+import ItemRelac from "../Item/ItemRelac/ItemRelac";
 import { collection,getDocs,query,where } from "firebase/firestore"
 
 
@@ -24,7 +25,7 @@ const ItemListContainer = () =>{
        const q=categoria
                 ? query(productosRef,where('categoria','==',categoria))
                 : productosRef
-
+                
         getDocs(q)
         .then((resp)=>{
             const articulosDB= resp.docs.map((doc)=>({cod_articulo:doc.id, ...doc.data()}))
@@ -36,8 +37,7 @@ const ItemListContainer = () =>{
 
     },[categoria])
    
-       
-
+  
         return(
           
             <div>
@@ -46,7 +46,11 @@ const ItemListContainer = () =>{
                         loading ? <center><BarLoader color="#010202" width={500} /></center> :
                        
                         <ItemList productos={productos}/>
+                        
                     }
+
+                   
+
             </div>
         )
    

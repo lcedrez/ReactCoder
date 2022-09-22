@@ -27,6 +27,10 @@ export const CartProvider=({children})=>{
         return cart.reduce((acc,item)=>acc + item.cantidad * item.precio,0)
     }
 
+    const cartTotalActualiza=({cantidad})=>{
+      return cart.reduce((acc,item)=>acc + cantidad * item.precio,0)
+  }
+
     const eliminarItem=(cod_articulo)=>{
       setCart(cart.filter((item)=>item.cod_articulo!==cod_articulo))
 
@@ -50,6 +54,7 @@ export const CartProvider=({children})=>{
             itemsEnCarrito,
             cartTotal,
             emptyCart,
+            cartTotalActualiza,
             eliminarItem
           }}>
             {children}

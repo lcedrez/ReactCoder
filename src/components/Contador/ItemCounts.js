@@ -1,4 +1,4 @@
-import { useState } from "react"
+
 import "./ItemCounts.css"
 
 const Contador =({cantStock,counter,setCounter  })=>{
@@ -9,6 +9,7 @@ const Contador =({cantStock,counter,setCounter  })=>{
       {
         
       setCounter(counter+1)
+      
       }
     
     }

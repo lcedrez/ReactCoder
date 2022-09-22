@@ -1,0 +1,8 @@
+
+.cardContainerRelac{
+    display:grid;
+}
+
+.cardContainerRelac img{
+    width: 120px;
+}
