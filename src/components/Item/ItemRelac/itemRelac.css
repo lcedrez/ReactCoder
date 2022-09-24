@@ -2,3 +2,13 @@
 .tituloRelac{
    padding-left: 450px;
 }
+
+.ContainerArRelacionados{
+    scroll-snap-type: x mandatory;  
+}
+
+.ContainerArRelacionados img{
+
+    scroll-snap-type: x mandatory;  
+
+}

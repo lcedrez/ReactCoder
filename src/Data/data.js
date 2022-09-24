@@ -320,7 +320,7 @@ export const stock=[
     },
 ]},
 
-{cod_articulo:9944,nombre:"All Together Now Onesie",descripcion:"40% off the original price of price of $25 Part of the All Together Now Collection!",precio:15.00,descuento:0,categoria:"Outfit",color:"White",imagen:"I../../../Imagenes/ropaBebe.jpg",stock:12,"subTotal":15.00,"size":0,categoria:"Outlet", talles: [
+{cod_articulo:9944,nombre:"All Together Now Onesie",descripcion:"40% off the original price of price of $25 Part of the All Together Now Collection!",precio:15.00,descuento:0,categoria:"Outfit",color:"White",imagen:"../../../Imagenes/ropaBebe.jpg",stock:12,"subTotal":15.00,"size":0,categoria:"Outlet", talles: [
     {
         value: 'L',
         text: 'Large'

@@ -15,6 +15,7 @@ import ToysAndGames from './components/ToysAndGames/ToysAndGames';
 import Outfit from './components/Outfit/outfit';
 import Cart from './components/Cart/cart';
 import { CartProvider } from './Context/CartContext';
+import Checkout from './components/Checkout/Checkout';
 
 
 
@@ -36,6 +37,7 @@ const App = ()=> {
                     <Route path='/Cart' element={<Cart/>}/>
                     <Route path='/item/:cod_articulo' element={<ItemDetailContainer />}/>
                     <Route path='/Articulo/:categoria' element={<ItemListContainer/>}/>
+                    <Route path='/Checkout' element={<Checkout/>}/>
                     <Route path="/Outlet" element={<Outlet/>}/>
                     <Route path="/Media" element={<Media/>}/>
                     <Route path="/Toy" element={<ToysAndGames/>}/>

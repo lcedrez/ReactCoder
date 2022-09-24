@@ -108,6 +108,7 @@ const Cart =()=>{
             <div className="totales">
             <h3>Total: U$S{cartTotalActualiza({cantidad})}</h3>
             <button onClick={emptyCart} className="botonAgregar">Vaciar Carrito</button>
+            <Link className="btn btn-success mx-3" to="/Checkout">Terminar Mi Compra</Link>
             </div>
         </div>
     )

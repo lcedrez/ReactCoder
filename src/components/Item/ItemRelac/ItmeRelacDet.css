@@ -13,9 +13,14 @@
     padding-top: 10px;
   
 }
+.precioCardRelac{
+    padding-left: 10px;
+}
 
 .tituloCardRelac{
     font-size: 16px;
+    padding-left: 10px;
+    padding-right: 2px;
 }
 
 .contenCardTitRelac{

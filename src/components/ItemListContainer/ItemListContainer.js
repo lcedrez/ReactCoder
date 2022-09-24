@@ -30,6 +30,7 @@ const ItemListContainer = () =>{
         .then((resp)=>{
             const articulosDB= resp.docs.map((doc)=>({cod_articulo:doc.id, ...doc.data()}))
             setProductos(articulosDB)
+           
         })
         .finally(()=>{
             setLoading(false)

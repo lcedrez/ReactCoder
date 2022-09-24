@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Select from "../Select/select";
 import { useContext } from "react";
 import { CartContext } from "../../Context/CartContext";
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import AlertaCarrito from "../Alertas/AlertaCarrito";
 import React from 'react';
 import { collection,getDocs,query,where } from "firebase/firestore"
@@ -12,30 +12,32 @@ import { db  } from "../../FireBase/config";
 import ItemRelac from "../Item/ItemRelac/ItemRelac";
 
 
+
 const ItemDetail=({item})=>{
     const [productosRelac,setProductosRelac]=useState([])   
     const {cart,addToCart,ExisteEnCarrito}=useContext(CartContext)
     const[cantidad,setCantidad]=useState(1)
     const [talle, setTalle] = useState()
-    
+   
 
     useEffect(()=>{
        
-        const productosRef=collection(db,'articulos')
+        const productosRelac=collection(db,'articulos')
        
        const q=item.categoria
-                ? query(productosRef,where('categoria','==',item.categoria))
-                : productosRef
+                ? query(productosRelac,where('categoria','==',item.categoria))
+                : productosRelac
                 
         getDocs(q)
         .then((resp)=>{
-            const articulosDBCat= resp.docs.map((doc)=>({categoria:doc.categoria, ...doc.data()}))
+            const articulosDBCat= resp.docs.map((doc)=>({cod_articulo:doc.id, ...doc.data()}))
             setProductosRelac(articulosDBCat)
+         
         })
         .finally(()=>{
             
         })
-
+       
     },[item.categoria])
       
    

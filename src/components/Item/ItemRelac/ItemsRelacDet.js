@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom';
-import "./ItmeRelacDet.css"
+import "./ItmeRelacDet.css";
+
 
 const ItemsRelacDet=({producto})=>{
-console.log(producto)
+    
 
     return(
        
@@ -16,7 +17,7 @@ console.log(producto)
                                             <span className="precioCardRelac">U$S {producto.precio}</span>
                                     </div>
                             </div>
-                    
+                            
                 
             </div>
         
