@@ -9,12 +9,18 @@
     background-color: white;
 }
 
+
+
 .form-control:focus{
   
     border-color: #329b3a !important;
     border-width: 2px;   
     box-shadow: 0 0 5px #329b3a  !important;
    
+}
+#discountCode{
+    width:400px;
+    height: 50px;  
 }
 
 #inputNombre{
@@ -86,8 +92,27 @@
     
 }
 .resumeTotal{
-    padding-left: 80px;
+    padding-left: 60px;
     width: 460px;
     
 }
+.linkCart{
+    text-decoration: none;
+}
 
+.returnCart{
+    text-decoration: none;
+    color:#329b3a ;
+}
+.subTotal{
+    display: flex;
+    justify-content: space-between;
+}
+.discountTit{
+    display: flex;
+    justify-content: space-between;
+}
+.totalCh{
+    display: flex;
+    justify-content: space-between;
+}

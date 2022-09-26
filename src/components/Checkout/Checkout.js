@@ -6,8 +6,8 @@ import { db } from "../../FireBase/config";
 import { Link } from "react-router-dom";
 const Checkout=()=>{
 
-    const{cart,cartTotal,finalizarCompra,alertaCarritoVacio,emptyCart}=useCartContext()
-
+    const{cart,cartTotal,finalizarCompra,alertaCarritoVacio,emptyCart,cartTotalActualiza}=useCartContext()
+    
 
     const[values,setValues]=useState({
         nombre:'',
@@ -78,7 +78,11 @@ const Checkout=()=>{
                                              <div className="contenedorCheckCont">
 
 
-                                                <Link  to={`/Cart`}><h6 className="returnCart"> Return to cart</h6></Link>
+                                                <Link  to={`/Cart`} className="linkCart">
+                                                    
+                                                        <h6 className="returnCart">Return to cart</h6>
+                                                    
+                                                </Link>
                                                     <div className="contenedorBtnCheck">
                                                         <button type="submit" className="btnCheckout">Continue to Shipping</button>
                                                     </div>
@@ -119,9 +123,17 @@ const Checkout=()=>{
 
             ))}
                 <div className="resumeTotal">
-                                <h4>Sub Total</h4>
+                <input id="discountCode" name="discount"   type={'text'} className="my-3 form-control" placeholder="Discount Code" required/>
+                                <div className="subTotal">
+                                    <h6>Sub Total</h6><h6> U$S {cartTotal()}</h6>
+                                </div>
+                                <div className="discountTit">
+                                    <h6>Discount</h6><h6>U$S</h6>
+                                </div>
                                 <hr/>
-                                <h4>Total</h4>
+                                <div className="totalCh">
+                                <h6>Total</h6><h6>U$S</h6>
+                                </div>
                 </div>
                 </div>
                

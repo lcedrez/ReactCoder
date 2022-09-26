@@ -59,7 +59,7 @@ const Cart =()=>{
                 <div className="carritoDetallesIt">
                     
                     <h3 className="tituloMiCarrito">MI CARRITO <span>({itemsEnCarrito() } Item)</span></h3>
-                    <Link  to={`/`}> 
+                    <Link  to={`/`} className="linkCarrito"> 
                     <h6 className="titSeguirComp">Continúa Comprando</h6>
                     </Link>
                     

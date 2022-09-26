@@ -15,6 +15,11 @@
 
 .titSeguirComp{
     padding-left: 10px;
+    color:#329b3a ;
+}
+
+.linkCarrito{
+    text-decoration: none;
 }
 
 .trash{
