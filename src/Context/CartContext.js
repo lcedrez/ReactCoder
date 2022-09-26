@@ -15,6 +15,26 @@ export const CartProvider=({children})=>{
       setCart([...cart,item])
   
     }
+
+    const finalizarCompra=()=>{
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Compra realizada con exito!!',
+        showConfirmButton: false,
+        timer: 1500
+      })
+    }
+
+    const alertaCarritoVacio=()=>{
+      Swal.fire({
+        position: 'top-end',
+        icon: 'warning',
+        title: 'Carrito Vacio!!',
+        showConfirmButton: false,
+        timer: 1500
+      })
+    }
   
     const ExisteEnCarrito=(cod_articulo)=>{
       return( 
@@ -57,7 +77,9 @@ export const CartProvider=({children})=>{
             cartTotal,
             emptyCart,
             cartTotalActualiza,
-            eliminarItem
+            eliminarItem,
+            finalizarCompra,
+            alertaCarritoVacio
           }}>
             {children}
         </CartContext.Provider>

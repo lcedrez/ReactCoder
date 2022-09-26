@@ -2,3 +2,92 @@
     width: 100px;
     height: 40px;
 }
+
+.form-control{
+    width:620px;
+    height: 50px; 
+    background-color: white;
+}
+
+.form-control:focus{
+  
+    border-color: #329b3a !important;
+    border-width: 2px;   
+    box-shadow: 0 0 5px #329b3a  !important;
+   
+}
+
+#inputNombre{
+    width:300px;    
+}
+#inputApellido{
+    width:300px;
+    height: 50px;    
+}
+.contenedorNameApe{
+    display: flex;
+}
+
+.contenedorApellido{
+    padding-left: 20px;
+}
+
+
+.btnCheckout:hover {
+    background: #f9fafa;
+    color: #080808 ;
+   
+  }
+
+.btnCheckout{
+    width: 200px;
+    height: 45px;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #080808;  
+    border:solid 1px;  
+}
+
+.contenedorCheckCont{
+    display: flex;
+    align-items: center;
+}
+.contenedorBtnCheck{
+
+    padding-left: 320px;
+}
+
+.claseFlex{
+    display: flex   ;
+}
+.contenedorDetResume{
+
+    padding-left: 50px;
+}
+.contenedorDetResume{
+    display: flex;
+}
+
+.contImgCartRes img{
+    width:100px;
+}
+.contImgCartRes{
+    padding-right: 10px;
+}
+
+.titResume{
+    padding-left: 50px;
+}
+.itemListadoRes{
+    display: flex;
+    list-style: none;
+    width: 300px;
+    
+}
+.resumeTotal{
+    padding-left: 80px;
+    width: 460px;
+    
+}
+

@@ -1,17 +1,21 @@
 import { useState } from "react";
 import "./Checkout.css";
 import { useCartContext } from "../../Context/CartContext";
-import { Navigate } from "react-router-dom";
-
+import { addDoc,collection } from "firebase/firestore";
+import { db } from "../../FireBase/config";
+import { Link } from "react-router-dom";
 const Checkout=()=>{
 
-    const{cart,cartTotal}=useCartContext()
+    const{cart,cartTotal,finalizarCompra,alertaCarritoVacio,emptyCart}=useCartContext()
 
 
     const[values,setValues]=useState({
         nombre:'',
+        apellido:'',
         mail:'',
-        dir:''
+        dir:'',
+        telefono:''
+       
     })
 
  const handleInputChange=(e)=>{
@@ -25,36 +29,104 @@ const Checkout=()=>{
     
     const handleSubmit=(e)=>{
         e.preventDefault()
-    
+        
         const orden={
             comprador:values,
             items:cart,
             total:cartTotal()    
         }
-            console.log(orden)
+           
 
             //Validaciones
 
-                if(cart.length===0)
-                return <Navigate     to="/"/>
+                if(cart.length===0){
+                return alertaCarritoVacio()
+            }
+
+            const ordenesRef=collection(db,'ordenes')
+            addDoc(ordenesRef,orden)
+                .then((doc)=>{
+                    finalizarCompra()
+                    emptyCart()
+                
+                })
+              
     }
 
 
 
 
     return(
+        
         <div className="container my-5">
             <br/>
             <br/>
             <br/>
-            <h2>Checkout!!</h2>
+            <h2>SHIPPING ADRESS</h2>
+            <div className="claseFlex">
                 <form onSubmit={handleSubmit}>
-                    <input name="nombre" value={values.nombre} onChange={handleInputChange } type={'text'} className=" my-3 form-control" placeholder="Nombre"/>
-                    <input name="mail" value={values.mail} onChange={handleInputChange }  type={'email'} className="my-3 form-control" placeholder="Email"/>
-                    <input name="dir" value={values.dir} onChange={handleInputChange } type={'text'} className="my-3 form-control" placeholder="Direccion"/>
-                    <button type="submit" className="btnCheckout">ENVIAR</button>
+                    
+                    <div className="contenedorNameApe">
+                        <input id="inputNombre" name="nombre" value={values.nombre} onChange={handleInputChange } type={'text'} className=" my-3 form-control" placeholder="First name" required/>
+                            <div className="contenedorApellido">
+                                <input id="inputApellido" name="apellido" value={values.apellido} onChange={handleInputChange } type={'text'} className=" my-3 form-control" placeholder="Last name" required/>
+                            </div>
+                    </div>
+                                <input name="mail" value={values.mail} onChange={handleInputChange }  type={'email'} className="my-3 form-control" placeholder="Email" required/>
+                                    <input name="dir" value={values.dir} onChange={handleInputChange } type={'text'} className="my-3 form-control" placeholder="Adress" required/>
+                                        <input name="telefono" value={values.telefono} onChange={handleInputChange } type={'tel'} className="my-3 form-control" placeholder="Phone" required/>
+                                             <div className="contenedorCheckCont">
+
+
+                                                <Link  to={`/Cart`}><h6 className="returnCart"> Return to cart</h6></Link>
+                                                    <div className="contenedorBtnCheck">
+                                                        <button type="submit" className="btnCheckout">Continue to Shipping</button>
+                                                    </div>
+                                            </div>
+                                  
                 </form>
 
+                <div className="resume">
+                        <div className="titResume">
+                            <h4>RESUME</h4>
+                        </div>
+                    {cart.map((item)=>(
+                    <div key={item.cod_articulo}>
+                    
+                        <div className="contenedorDetResume">
+                            <div className="contImgCartRes">
+                                <img src={item.imagen} ></img>
+                            </div>
+                            <div className="containerTodoDetalleResume">
+                                <p className="nomDetCart">{item.nombre}</p>
+                                <div className="contDetGralResume">
+                                    <ul className="itemListadoRes"> 
+                                    
+                                        <li>
+                                        <em className="precDet">{item.cantidad}X U$S {item.precio}</em>
+                                        </li>
+                                    </ul>
+                            
+                                </div>
+                                    
+                                <hr/>
+                            </div>
+                           
+                        </div>
+                       
+                </div>
+                
+
+            ))}
+                <div className="resumeTotal">
+                                <h4>Sub Total</h4>
+                                <hr/>
+                                <h4>Total</h4>
+                </div>
+                </div>
+               
+            </div>
+            
         </div>
     )
 }
