@@ -19,3 +19,7 @@
     padding-top: 10px;
     padding-left: 200px;
 }
+
+.containerLogIn{
+    background-image: image-set("../../assets/img/BeatlesFondNew.jpg");
+}
