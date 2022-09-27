@@ -11,7 +11,7 @@ import { CartContext } from '../../Context/CartContext';
 const handlValidarCarrito=(itemsEnCarrito)=>{
     if(itemsEnCarrito ===0)
     {
-       console.log("vacioS")
+       
     }
 }
 
