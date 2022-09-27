@@ -12,6 +12,7 @@ const NavBar =()=> {
             <Link to='/Articulo/Home'>Home</Link>
             <Link to='/Articulo/Accesories'>Accesories</Link>
             <Link to='/Articulo/Outfit'>Outfit</Link>
+            <Link to='/Login'>Login</Link>
         </div>
     </div>
     )

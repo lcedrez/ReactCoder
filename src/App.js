@@ -15,7 +15,9 @@ import ToysAndGames from './components/ToysAndGames/ToysAndGames';
 import Outfit from './components/Outfit/outfit';
 import Cart from './components/Cart/cart';
 import { CartProvider } from './Context/CartContext';
+import { LoginProvider } from './Context/LoginContext';
 import Checkout from './components/Checkout/Checkout';
+import Login from './components/Login/Login';
 
 
 
@@ -24,38 +26,41 @@ const App = ()=> {
 
 
   return (
-    <CartProvider>
-        <BrowserRouter>
+    <LoginProvider>
+        <CartProvider>
+            <BrowserRouter>
 
 
-              <div className="App">
-              
-              <Header/>
-              
-                  <Routes>
-                    <Route path='/' element={ <ItemListContainer/> }/>
-                    <Route path='/Cart' element={<Cart/>}/>
-                    <Route path='/item/:cod_articulo' element={<ItemDetailContainer />}/>
-                    <Route path='/Articulo/:categoria' element={<ItemListContainer/>}/>
-                    <Route path='/Checkout' element={<Checkout/>}/>
-                    <Route path="/Outlet" element={<Outlet/>}/>
-                    <Route path="/Media" element={<Media/>}/>
-                    <Route path="/Toy" element={<ToysAndGames/>}/>
-                    <Route path="/Home" element={<Home/>}/>
-                    <Route path="/Outfit" element={<Outfit/>}/>
-                    <Route path="/Accesories" element={<Accesories/>}/>
-                  </Routes>
-                
-                    <br/>
-                    <br/>
-                    <br/>
-
-                  <Footer/>
-                  <PieDePagina/>
+                  <div className="App">
                   
-            </div>
-        </BrowserRouter>
-    </CartProvider>
+                  <Header/>
+                  
+                      <Routes>
+                        <Route path='/' element={ <ItemListContainer/> }/>
+                        <Route path='/Cart' element={<Cart/>}/>
+                        <Route path='/item/:cod_articulo' element={<ItemDetailContainer />}/>
+                        <Route path='/Articulo/:categoria' element={<ItemListContainer/>}/>
+                        <Route path='/Checkout' element={<Checkout/>}/>
+                        <Route path="/Outlet" element={<Outlet/>}/>
+                        <Route path="/Media" element={<Media/>}/>
+                        <Route path="/Toy" element={<ToysAndGames/>}/>
+                        <Route path="/Home" element={<Home/>}/>
+                        <Route path="/Outfit" element={<Outfit/>}/>
+                        <Route path="/Accesories" element={<Accesories/>}/>
+                        <Route path="/Login" element={<Login/>}/>
+                      </Routes>
+                    
+                        <br/>
+                        <br/>
+                        <br/>
+
+                      <Footer/>
+                      <PieDePagina/>
+                      
+                </div>
+            </BrowserRouter>
+        </CartProvider>
+    </LoginProvider>
   );
 }
 
