@@ -20,8 +20,9 @@ const Cart =()=>{
             <br/>
             <br/>
             <br/>
-            
-            
+            <br/>
+            <br/>
+         
          
                 <div className="contPadreVacio">
                     <div className="contenedorCarritoVacio">

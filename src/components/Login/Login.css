@@ -1,7 +1,8 @@
 
 
 .containerLogIn{
-    padding-left: 300px;
+    padding-left: 400px;
+    padding-bottom: 400px;
 }
 .contenedorBirth{
     display: flex;
@@ -16,10 +17,76 @@
 }
 
 .btnLogin{
-    padding-top: 10px;
-    padding-left: 200px;
+ padding-right: 80px;
+    
 }
 
-.containerLogIn{
-    background-image: image-set("../../assets/img/BeatlesFondNew.jpg");
+.titSignin{
+    font-size: 30px;
+    padding-right: 320px;
+}
+
+
+.NewtoBeat{
+    padding-top: 20px;;
+}
+
+   
+.tituloSign10{
+    display: flex;
+    flex-direction: column;
+
+    
+}
+
+.take{
+    font-size: 30px;
+    
+}
+.your{
+    font-size: 30px;    
+}
+
+#mailSign{  
+    width:320px;
+    height: 50px; 
+    background-color: white;
+}
+
+#passSign{
+    width:320px;
+    height: 50px; 
+    background-color: white;
+}
+.containerFormSign{
+   text-align: center;
+    border-radius: 10px;
+   width:500px;
+   height:400px;
+   border:1px solid black;
+    
+}
+
+.contFormulario{
+    padding-left: 80px;
+}
+
+.createAccount{
+
+    width:300px;
+    height:50px;
+    border-radius: 5px;
+    background-color: black;
+    color:white;
+    
+}
+.btnCreate{
+    padding-top: 20px;
+    padding-right: 65px;
+}
+
+.createAccount:hover{
+    background-color: white;
+    color:black;
+    border:1px solid black;
 }

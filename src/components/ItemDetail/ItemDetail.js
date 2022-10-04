@@ -6,6 +6,7 @@ import { useContext } from "react";
 import { CartContext } from "../../Context/CartContext";
 import { Link, useParams } from 'react-router-dom';
 import AlertaCarrito from "../Alertas/AlertaCarrito";
+import AlertaTalle from "../Alertas/AlertaTalle";
 import React from 'react';
 import { collection,getDocs,query,where } from "firebase/firestore"
 import { db  } from "../../FireBase/config";
@@ -57,6 +58,10 @@ const ItemDetail=({item})=>{
                 talle,
                
             }
+           
+            talle===undefined
+            ?AlertaTalle()
+            :
             ExisteEnCarrito(item.cod_articulo)
             ?AlertaCarrito()
             :addToCart(itemToCart)
@@ -157,11 +162,13 @@ const ItemDetail=({item})=>{
 
     return(
         <div>
+         
                         <div className="Container">
                         
-                            
+           
                             
                             <div className="contenedorDetalle" key={item.cod_articulo}>
+         
                             
                                     <div className="contenedorImgDetalle">
                                         <img src={item.imagen} ></img>
