@@ -1,14 +1,14 @@
 import { useState } from "react";
 import "./Checkout.css";
 import { useCartContext } from "../../Context/CartContext";
-import { addDoc,collection,getDocs,writeBatch,query,where,documentId } from "firebase/firestore";
+import { addDoc,collection,getDocs,writeBatch,query,where,documentId, doc } from "firebase/firestore";
 import { db } from "../../FireBase/config";
 import { Link } from "react-router-dom";
 const Checkout=()=>{
 
     const{cart,cartTotal,finalizarCompra,alertaCarritoVacio,emptyCart,cartTotalActualiza,alertaStock}=useCartContext()
     
-
+    const [orderId, setOrderId] = useState(null)
     const[values,setValues]=useState({
         nombre:'',
         apellido:'',
@@ -60,6 +60,7 @@ const Checkout=()=>{
                         stock: doc.data().stock - itemInCart.cantidad
                     })
                 }else{
+                   
                     outStock.push(itemInCart)
                 }
 
@@ -68,29 +69,43 @@ const Checkout=()=>{
 
             if(outStock.length===0){
                 batch.commit()
-                .then((doc)=>{
+                .then(()=>{
                     addDoc(ordenesRef,orden)
-                       finalizarCompra()
+                    .then((doc)=>{  
+                        setOrderId(doc.id)
+
+                        finalizarCompra()
                      
                         emptyCart()  
+
+                    })
+
+                   
+                      
                 }) 
             }
             else
             {
+                
                 alertaStock()
             }
             
           
     }
-   // addDoc(ordenesRef,orden)
-   // .then((doc)=>{
-     //   finalizarCompra()
-    //a
-      //  emptyCrt()   
 
-    
-   // })
-    
+    if (orderId) {
+        return (
+            <div className="container my-5">
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <h2>Compra exitosa!</h2>
+                <hr/>
+                <p>Tu número de orden es: <strong>{orderId}</strong></p>
+            </div>
+        )
+    }
 
 
 
