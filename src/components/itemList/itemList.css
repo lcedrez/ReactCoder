@@ -41,8 +41,18 @@
     padding: 15px 15px 35px;
     display: flex;
     flex-wrap: wrap;
-  height: 90px;
+  height: 100px;
 }
+
+.contenedorNombPrecStock{
+    border-top: 1px solid #000;
+    padding: 15px 15px 35px;
+    display: flex;
+    flex-wrap: wrap;
+  height: 90px;
+
+}
+
 
 .contenedorNombPrec:hover  {
     color:rgb(255, 255, 255);
@@ -53,16 +63,52 @@
     display: flex;
 }
 
+.contenCardTitStock{
+    display: flex;
+}
+
+.imgNonStock:hover{
+    filter: grayscale(100%);
+    
+}
+
+.contPrecDesc{
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: flex-start;
+}
+
 .cardContainerStock img{
     width: 280px;
     -webkit-filter: grayscale(100%); 
-    filter: grayscale(100%)
+    filter: grayscale(100%);
+    overflow:hidden;
 }
 
 .cardContainer img{
     width: 280px;
     cursor: pointer;
    
+}
+.titStock{
+    color: red;
+    padding: 1px;
+   
+}
+
+.stockOut{
+    border: 2px solid red;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    width: 140px;
+    height: 35px;
+    
+}
+
+.contenedorNoStock{
+    display: flex;
+    justify-content: center;
 }
 
 .tituloCardStock{
@@ -87,4 +133,20 @@
     font-family:Arial, Helvetica, sans-serif;
     
 }
+.precioFinal{
+    font-size: 18px;
+    font-family:Arial, Helvetica, sans-serif;
+}
+.contenedorDescuento{
+    color:green;
+    padding: 10px;
+    font-weight: bold;
+}
+
+.precioCardDesc{
+    font-size: 16px;
+    font-family:Arial, Helvetica, sans-serif;
+    
+}
+
 

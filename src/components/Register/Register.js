@@ -1,7 +1,10 @@
 import './Register.css'
 import { Link } from "react-router-dom";
+import { db } from "../../FireBase/config";
 
 const Register=()=>{
+
+    
 
 
     return(
