@@ -35,6 +35,16 @@ export const CartProvider=({children})=>{
         timer: 1500
       })
     }
+
+    const alertaStock=()=>{
+      Swal.fire({
+        position: 'top-end',
+        icon: 'warning',
+        title: 'No hay Stock!!',
+        showConfirmButton: false,
+        timer: 1500
+      })
+    }
   
     const ExisteEnCarrito=(cod_articulo)=>{
       return( 
@@ -79,7 +89,8 @@ export const CartProvider=({children})=>{
             cartTotalActualiza,
             eliminarItem,
             finalizarCompra,
-            alertaCarritoVacio
+            alertaCarritoVacio,
+            alertaStock
           }}>
             {children}
         </CartContext.Provider>

@@ -1,12 +1,12 @@
 import { useState } from "react";
 import "./Checkout.css";
 import { useCartContext } from "../../Context/CartContext";
-import { addDoc,collection } from "firebase/firestore";
+import { addDoc,collection,getDocs,writeBatch,query,where,documentId } from "firebase/firestore";
 import { db } from "../../FireBase/config";
 import { Link } from "react-router-dom";
 const Checkout=()=>{
 
-    const{cart,cartTotal,finalizarCompra,alertaCarritoVacio,emptyCart,cartTotalActualiza}=useCartContext()
+    const{cart,cartTotal,finalizarCompra,alertaCarritoVacio,emptyCart,cartTotalActualiza,alertaStock}=useCartContext()
     
 
     const[values,setValues]=useState({
@@ -27,7 +27,7 @@ const Checkout=()=>{
  }      
         
     
-    const handleSubmit=(e)=>{
+    const handleSubmit= async (e)=>{
         e.preventDefault()
         
         const orden={
@@ -42,17 +42,55 @@ const Checkout=()=>{
                 if(cart.length===0){
                 return alertaCarritoVacio()
             }
-
+            
+            const batch=writeBatch(db)
             const ordenesRef=collection(db,'ordenes')
-            addDoc(ordenesRef,orden)
-                .then((doc)=>{
-                    finalizarCompra()
-                    emptyCart()
-                
-                })
-              
-    }
+            const productosREf=collection(db,'articulos')
 
+            const q=query(productosREf, where(documentId(),'in',cart.map(item=>item.cod_articulo)))
+
+            const articulos= await getDocs(q)
+            
+            const outStock=[]
+
+            articulos.docs.forEach((doc)=>{
+                const itemInCart=cart.find(item=>item.cod_articulo===doc.id)
+                if(doc.data().stock>=itemInCart.cantidad){
+                    batch.update(doc.ref,{
+                        stock: doc.data().stock - itemInCart.cantidad
+                    })
+                }else{
+                    outStock.push(itemInCart)
+                }
+
+            })
+
+
+            if(outStock.length===0){
+                batch.commit()
+                .then((doc)=>{
+                    addDoc(ordenesRef,orden)
+                       finalizarCompra()
+                     
+                        emptyCart()  
+                }) 
+            }
+            else
+            {
+                alertaStock()
+            }
+            
+          
+    }
+   // addDoc(ordenesRef,orden)
+   // .then((doc)=>{
+     //   finalizarCompra()
+    //a
+      //  emptyCrt()   
+
+    
+   // })
+    
 
 
 
@@ -84,6 +122,7 @@ const Checkout=()=>{
                                                     
                                                 </Link>
                                                     <div className="contenedorBtnCheck">
+                                                        
                                                         <button type="submit" className="btnCheckout">Continue to Shipping</button>
                                                     </div>
                                             </div>
