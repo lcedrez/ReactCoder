@@ -14,6 +14,16 @@
     
 }
 
+.cardContainerStock{
+    border: 1px solid #000;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: .3s ease-out;
+    width: 310px;
+    justify-content: flex-end;
+
+}
 
 .cardContainer{
 
@@ -43,12 +53,24 @@
     display: flex;
 }
 
-
+.cardContainerStock img{
+    width: 280px;
+    -webkit-filter: grayscale(100%); 
+    filter: grayscale(100%)
+}
 
 .cardContainer img{
     width: 280px;
     cursor: pointer;
    
+}
+
+.tituloCardStock{
+    flex: 3 0;
+    font-weight: 700;
+    font-size: 18px;
+    padding-bottom: 0;
+    padding-right: 10px;
 }
 
 .tituloCard{
