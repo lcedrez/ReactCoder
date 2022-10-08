@@ -6,7 +6,7 @@ import "./ItmeRelacDet.css";
 
 
 const ItemRelac=({productosRelac =[]})=>{
-    console.log(productosRelac)
+let artSlice=productosRelac.slice(-5)
     return(
       <div>
         <div className="tituloRelac">
@@ -14,7 +14,7 @@ const ItemRelac=({productosRelac =[]})=>{
           </div>
         <div className="ContainerArRelacionados">
            
-            {productosRelac.map((prod) => <ItemsRelacDet producto={prod} key={prod.cod_articulo}/>)}
+            {artSlice.map((prod) => <ItemsRelacDet producto={prod} key={prod.cod_articulo}/>)}
            
         </div>
     </div> 

@@ -4,7 +4,27 @@ import { Link } from 'react-router-dom';
 
 
 const   Item=({producto})=>{
-        
+       
+if(producto.stock===0)
+{
+        return( 
+                <div className="cardContainer" >
+                        
+                        <img src={producto.imagen}/>
+                                <div className='contenedorNombPrec'>
+                                        <div  className='contenCardTit'>
+                                                <h2 className="tituloCard">{producto.nombre}</h2>
+                                                <span className="precioCard">U$S {producto.precio}</span>
+                                                <img src='../../../Imagenes/OutStock.jpg'/>
+                                        </div>
+                                </div>
+                        
+                       
+                </div>
+            )   
+
+}
+
     return( 
         <div className="cardContainer" >
                 
