@@ -63,9 +63,9 @@ const Login=()=>{
                                                                         <p className="NewtoBeat" > New to Beatles Store?</p>
                                                                 </div>
                                                                             <div className="btnCreate">
-                                                                                <Link to="/Register">
+                                                                                
                                                                                     <button type="button" className="createAccount">Create your Beatles Account</button>
-                                                                                </Link>
+                                                                                
                                                                             </div>
                         </form>                             
             </div>
