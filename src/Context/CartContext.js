@@ -36,11 +36,13 @@ export const CartProvider=({children})=>{
       })
     }
 
-    const alertaStock=()=>{
+    const alertaStock=(OutStockRec)=>{
+
+      
       Swal.fire({
         position: 'top-end',
         icon: 'warning',
-        title: 'No hay Stock!!',
+        title: `No hay stock para,${OutStockRec} `,
         showConfirmButton: false,
         timer: 1500
       })

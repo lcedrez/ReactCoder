@@ -11,6 +11,7 @@ import ToysAndGames from '../../components/ToysAndGames/ToysAndGames';
 import Outfit from '../../components/Outfit/outfit';
 import Cart from '../../components/Cart/cart';
 import Checkout from '../../components/Checkout/Checkout';
+import MyAccount from '../MyAccount/MyAccount';
 import{Routes,Route} from 'react-router-dom'; 
 
 
@@ -32,6 +33,7 @@ return(
                             <Route path="/Home" element={<Home/>}/>
                             <Route path="/Outfit" element={<Outfit/>}/>
                             <Route path="/Accesories" element={<Accesories/>}/>
+                            <Route path="/MyAccount" element={<MyAccount/>}/>
                         
                         </Routes>
                 

@@ -86,8 +86,10 @@ const Checkout=()=>{
             }
             else
             {
-                
-                alertaStock()
+      
+                const nombre=outStock[0].nombre
+         
+                alertaStock(nombre)
             }
             
           
@@ -177,16 +179,14 @@ const Checkout=()=>{
 
             ))}
                 <div className="resumeTotal">
-                <input id="discountCode" name="discount"   type={'text'} className="my-3 form-control" placeholder="Discount Code" required/>
+              
                                 <div className="subTotal">
                                     <h6>Sub Total</h6><h6> U$S {cartTotal()}</h6>
                                 </div>
-                                <div className="discountTit">
-                                    <h6>Discount</h6><h6>U$S</h6>
-                                </div>
+                             
                                 <hr/>
                                 <div className="totalCh">
-                                <h6>Total</h6><h6>U$S</h6>
+                                <h6>Total</h6><h6>U$S {cartTotal()}</h6>
                                 </div>
                 </div>
                 </div>

@@ -9,7 +9,7 @@ const usuarios=[
         pass:'12345678'
     },
     {
-        mail:'jcedrez@gmail.com',
+        mail:'clanusse@gmail.com',
         pass:'12345678'
     }
     ]
@@ -24,7 +24,7 @@ export const LoginProvider=({children})=>{
     })
    
     const login = (values) => {
-        console.log(values)
+    
     
         const match = usuarios.find(user => user.mail === values.mail)
       

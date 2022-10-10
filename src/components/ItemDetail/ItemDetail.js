@@ -48,12 +48,13 @@ const ItemDetail=({item})=>{
         const handleAgregar=()=>{
             const itemToCart={
                 cod_articulo:item.cod_articulo,
-                precio:item.precio,
+                precio:item.precio -totDesc,
                 nombre:item.nombre,
                 descripcion:item.descripcion,
                 imagen:item.imagen,
                 stock:item.stock,
                 categoria:item.categoria,
+                descuento:item.descuento,
                 cantidad,
                 talle,
                
@@ -65,13 +66,13 @@ const ItemDetail=({item})=>{
             ExisteEnCarrito(item.cod_articulo)
             ?AlertaCarrito()
             :addToCart(itemToCart)
-            
-             
+           
            
             
             
            
         }
+        const totDesc=item.precio * item.descuento/100 
     
         return(
            <div>
@@ -87,7 +88,8 @@ const ItemDetail=({item})=>{
                            <div className="contenedorDetalleDerecha">
                                <h2 className="tituloDetalle">{item.nombre}</h2>
     
-                               <p className="precioDetalle">U$S {item.precio}</p>
+                               <p className="precioDetalle">U$S {item.precio -totDesc}</p>
+                              
     
                                <Select className="size" options={item.talles} onSelect={setTalle}/>
                                <br/>
@@ -139,12 +141,13 @@ const ItemDetail=({item})=>{
     const handleAgregar=()=>{
         const itemToCart={
             cod_articulo:item.cod_articulo,
-            precio:item.precio,
+            precio:item.precio - totDesc,
             nombre:item.nombre,
             descripcion:item.descripcion,
             imagen:item.imagen,
             stock:item.stock,
             categoria:item.categoria,
+            descuento:item.descuento,
             cantidad,
             
            
@@ -159,8 +162,9 @@ const ItemDetail=({item})=>{
         
        
     }
-
+    const totDesc=item.precio * item.descuento/100 
     return(
+        
         <div>
          
                         <div className="Container">
@@ -176,7 +180,8 @@ const ItemDetail=({item})=>{
                                         <div className="contenedorDetalleDerecha">
                                             <h2 className="tituloDetalle">{item.nombre}</h2>
 
-                                            <p className="precioDetalle">U$S {item.precio}</p>
+                                    
+                                            <p className="precioDetalle">U$S { item.precio -totDesc }</p>
 
                                             
                                             <br/>

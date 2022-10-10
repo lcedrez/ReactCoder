@@ -3,7 +3,7 @@ import CartWidget from '../CartWidget/CartWidget';
 import Logo from '../../assets/img/LogoStoreUy.jpg'
 import { Link } from 'react-router-dom';
 import { useLoginContext } from '../../Context/LoginContext';
-import {faArrowRight, faArrowRightFromBracket, faGears, faUserCircle, faUserGear} from "@fortawesome/free-solid-svg-icons";
+import {faArrowRightFromBracket, faUserCircle} from "@fortawesome/free-solid-svg-icons";
 
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
@@ -30,10 +30,13 @@ const Header=()=>{
             
                     <FontAwesomeIcon className='userIcon'  icon={faUserCircle}/>
             <small className='titBienvenido'>Bienvenido , <span className='mailUser'>{user.user}</span></small>
-            
+                
                 <FontAwesomeIcon className='settingIcon'  icon={faGear}/>
-                <span className='settings'>Mi Cuenta</span>
-
+               <div className='contMyAccount'>
+                    <Link to='/MyAccount' className='link'>  
+                        <span className='settings'>Mi Cuenta</span>
+                    </Link>
+                </div>
 
              <FontAwesomeIcon className='iconLogout' onClick={logout}  icon={faArrowRightFromBracket}/>
              <span className='logout' onClick={logout}>Logout</span>

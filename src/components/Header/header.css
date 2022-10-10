@@ -34,8 +34,19 @@
 .settings{
     padding-left: 10px;
    cursor: pointer;
+   text-decoration: none;
     
 }
+
+.link{
+    text-decoration: none;  
+    color:black
+}
+
+.contMyAccount{
+    text-decoration: none;
+}
+
 
 .settingIcon :hover{
     color:green;

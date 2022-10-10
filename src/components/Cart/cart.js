@@ -43,7 +43,7 @@ const Cart =()=>{
             </div>
         )
     }
-    
+  
    
     return(
         <div>
@@ -65,7 +65,10 @@ const Cart =()=>{
                     </Link>
                     
                 </div>
-            {cart.map((item)=>(
+            {
+            
+            cart.map((item)=>(
+
                 <div key={item.cod_articulo}>
                    
                     <div className="contenedorDetCart">
@@ -78,9 +81,7 @@ const Cart =()=>{
                             <ul className="itemListado"> 
                                
                                  
-                                    <li>
-                                        <em className="size">Size: {item.talle}</em>
-                                    </li>
+                                 
                                         <li>
                                             <em className="cantidad">Cant: {item.cantidad}</em>
                                         </li>
@@ -97,7 +98,7 @@ const Cart =()=>{
                            
                             </div>
                                 <div className="contadorEliminar">
-                                    <ContadorCarrito cantStock={item.stock} counter={cantidad} setCounter={setCantidad} cod_articulo={item.cod_articulo} />
+                                  
                                         <FontAwesomeIcon className="trash" icon={faTrash} onClick={()=>eliminarItem(item.cod_articulo)}/>
                                 </div>
                             <hr/>
@@ -107,9 +108,14 @@ const Cart =()=>{
 
             ))}
             <div className="totales">
-            <h3>Total: U$S{cartTotalActualiza({cantidad})}</h3>
-            <button onClick={emptyCart} className="botonAgregar">Vaciar Carrito</button>
-            <Link className="btn btn-success mx-3" to="/Checkout">Terminar Mi Compra</Link>
+                <h3>Total: U$S{cartTotalActualiza({cantidad})}</h3>
+                   
+                        <div className="contenedorFinalizar">
+                            <Link className="linkFinalizar" to="/Checkout">Terminar Mi Compra</Link>
+                        </div>
+            </div>
+            <div className="contebtnVaciar">
+                <button onClick={emptyCart} className="botonAgregar">Vaciar Carrito</button>    
             </div>
         </div>
     )
