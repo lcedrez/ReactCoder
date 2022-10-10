@@ -1,4 +1,6 @@
 import { createContext, useContext, useState } from "react";
+import Swal from 'sweetalert2';
+
 
 
 
@@ -40,7 +42,9 @@ export const LoginProvider=({children})=>{
                     user: '',
                     logged: false,
                     error: "Password incorrecto"
+                    
                 })
+                alertaPassword()
             }
         } else {
             setUser({
@@ -48,6 +52,8 @@ export const LoginProvider=({children})=>{
                 logged: false,
                 error: "Email incorrecto"
             })
+
+            alertaMail()
         }
     }
 
@@ -60,6 +66,29 @@ export const LoginProvider=({children})=>{
     }
        
     
+
+
+    const alertaPassword=()=>{
+        Swal.fire({
+          position: 'top-center',
+          icon: 'warning',
+          title: 'Password Incorrecto!!',
+          showConfirmButton: false,
+          timer: 1500
+        })
+      }
+
+      const alertaMail=()=>{
+        Swal.fire({
+          position: 'top-center',
+          icon: 'warning',
+          title: 'Mail Incorrecto!!',
+          showConfirmButton: false,
+          timer: 1500
+        })
+      }
+
+
 
     return(
         <LoginContext.Provider value={{user,login,logout}}>
